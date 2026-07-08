@@ -205,23 +205,26 @@ const EventsPage = (): React.ReactElement => {
                       ))}
                   </div>
 
-                  <div className="mt-8 flex flex-wrap gap-3">
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {cardsForKids.link ? (
                       <a
                         href={cardsForKids.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={cn(buttonVariants({ variant: "primary", size: "md" }))}
+                        className={cn(
+                          buttonVariants({ variant: "primary", size: "md" }),
+                          "h-auto min-h-12 w-full whitespace-normal py-3 text-center sm:w-auto",
+                        )}
                       >
                         Learn about Brushstrokes for Biodiversity
-                        <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
+                        <ArrowUpRight aria-hidden="true" className="h-5 w-5 shrink-0" />
                       </a>
                     ) : null}
                     <Link
                       href="/join"
                       className={cn(
                         buttonVariants({ variant: "outline", size: "md" }),
-                        "border-[#F3EAD7] text-[#F3EAD7] hover:bg-[#F3EAD7] hover:text-moss-deep",
+                        "w-full border-[#F3EAD7] text-[#F3EAD7] hover:bg-[#F3EAD7] hover:text-moss-deep sm:w-auto",
                       )}
                     >
                       Volunteer with us
