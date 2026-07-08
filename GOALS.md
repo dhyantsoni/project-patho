@@ -30,3 +30,27 @@ paste the final version (all ✅) as proof of completion.
 
 If any goal is ❌ or the completeness critic finds gaps → fix, re-run that goal's
 verifier, repeat. Do not stop until this table is 100% ✅.
+
+---
+
+## ✅ COMPLETE — all 8 goals independently verified
+
+Every goal above is ✅, each confirmed by a **separate** verifier agent (not the
+builder). The Phase-4 completeness critic found **no blockers**; its should-fix
+items were all addressed (honest "Quiz coming soon" badges, de-duplicated poster
+placeholders, removed the empty Join form iframe, dynamic footer year, custom
+on-brand 404, team-fillable podcast-follow link). Build, `tsc --noEmit`, and
+`next lint` all pass clean; static export produces 14 routes.
+
+### Genuinely team-only follow-ups (not defects — external assets we can't source)
+These render tasteful, clearly-labeled placeholders today and appear the moment
+the team drops the file in and names it (one file each, per `CONTENT-GUIDE.md`):
+
+1. **Team headshots** — add `team-firstname-lastname.webp` to `public/images/`.
+2. **Info-poster artwork** — the team's own infographics (`poster-*.webp`).
+3. **Poster quizzes** — currently badged "Quiz coming soon" (honest; the live
+   quizzes were interactive Google embeds we couldn't carry over).
+4. **PathoTalks show/trailer URL** — paste the Spotify *show* URL into
+   `site.podcastShow` in `src/lib/site.ts` to reveal a "Follow PathoTalks" button.
+5. **Confirm the footer Instagram** — live site's footer icon mis-linked to an
+   unrelated account; rebuild uses the canonical `instagram.com/projectpatho`.
