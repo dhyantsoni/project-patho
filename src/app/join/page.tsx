@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -19,11 +19,12 @@ import { PhotoFrame } from "@/components/organic/photo-frame";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Join Us",
   description:
     "Volunteer with ProjectPatho. Run workshops, make care packages, write cards for hospitalized kids, spread awareness, or help with the PathoTalks podcast — there's a place for every student.",
-};
+  path: "/join",
+});
 
 type Way = {
   icon: LucideIcon;

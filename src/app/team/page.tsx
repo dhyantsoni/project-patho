@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getTeam } from "@/lib/content";
@@ -9,11 +9,12 @@ import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import { TeamGrid } from "@/components/team/team-grid";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Meet the Team",
   description:
     "Meet the student leaders behind ProjectPatho — the young people making science warm, honest, and welcoming for kids everywhere.",
-};
+  path: "/team",
+});
 
 const TeamPage = (): React.ReactElement => {
   const members = getTeam();

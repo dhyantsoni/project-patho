@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Headphones, Play } from "lucide-react";
 import { getEpisodes } from "@/lib/content";
 import { Container } from "@/components/ui/container";
@@ -8,11 +8,12 @@ import { EpisodeList } from "@/components/podcast/episode-list";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "PathoTalks Podcast",
   description:
     "PathoTalks is the ProjectPatho podcast — warm, honest conversations with real doctors and scientists about the work they do and the conditions they treat.",
-};
+  path: "/podcast",
+});
 
 const COMING_SOON = [
   "Colorectal surgeon",

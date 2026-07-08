@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight, Instagram, Mail } from "lucide-react";
 import { site } from "@/lib/site";
 import { Container } from "@/components/ui/container";
@@ -7,11 +7,12 @@ import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Contact",
   description:
     "Have a question for ProjectPatho? Reach us by email or on Instagram — we'd love to hear from students, teachers, and families.",
-};
+  path: "/contact",
+});
 
 const ContactPage = (): React.ReactElement => {
   return (

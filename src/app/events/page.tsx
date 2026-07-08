@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, HeartHandshake, Instagram, MapPin } from "lucide-react";
 import { getEvents } from "@/lib/content";
@@ -10,11 +10,12 @@ import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import { EventCard } from "@/components/events/event-card";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Events",
   description:
     "Workshops, club meets, and community events where ProjectPatho brings warm, hands-on science to kids — plus our ongoing Cards for Hospitalized Kids program.",
-};
+  path: "/events",
+});
 
 const EventsPage = (): React.ReactElement => {
   const events = getEvents();

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getPosters } from "@/lib/content";
@@ -9,11 +9,12 @@ import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import { PosterGallery } from "@/components/resources/poster-gallery";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Resources — Info Posters",
   description:
     "Friendly, accurate info posters that teach kids ages 7–11 about diseases and disorders — reducing stigma and growing empathy, one condition at a time.",
-};
+  path: "/resources",
+});
 
 const ResourcesPage = (): React.ReactElement => {
   const posters = getPosters();
