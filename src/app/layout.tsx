@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Epilogue } from "next/font/google";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { StructuredData } from "@/components/site/structured-data";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -61,6 +62,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }): React.ReactEle
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <StructuredData />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
