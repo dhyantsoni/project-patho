@@ -2,8 +2,13 @@
 # Copy this file to content/podcast/episode-NN.md (next number) and fill it in.
 title: "Episode title"
 episode: 11
-# Date the episode went live (YYYY-MM-DD). Newest sorts to the top.
-date: "2026-08-01"
+# Who you interviewed and their specialty (both optional but nice to show).
+guest: "Dr. Example"
+specialty: "Cardiologist"
+# Which team member(s) hosted (optional).
+interviewer: "Aditi"
+# Date the episode went live (YYYY-MM-DD) — optional; episodes sort by number.
+date: ""
 # One or two sentences shown in the episode list.
 summary: "What this episode is about, in plain language."
 # Episode art: put the image in public/images/ and name it here (optional).

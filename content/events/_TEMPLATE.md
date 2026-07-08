@@ -1,8 +1,10 @@
 ---
 # Copy this file to content/events/YYYY-MM-DD-short-name.md and fill it in.
 title: "Event name"
-# Event date (YYYY-MM-DD).
+# Event date (YYYY-MM-DD) — used to sort events (newest first).
 date: "2026-08-15"
+# Optional friendlier date to display (e.g. "Aug 15" or "6/26/26"). Falls back to `date`.
+displayDate: ""
 # upcoming | past  — the site sorts the event into the right list automatically.
 status: "upcoming"
 location: "Where it's happening (or 'Online')"
