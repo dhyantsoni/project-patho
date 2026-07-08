@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Headphones } from "lucide-react";
+import { Headphones, Play } from "lucide-react";
 import { getEpisodes } from "@/lib/content";
 import { Container } from "@/components/ui/container";
 import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
 import { EpisodeList } from "@/components/podcast/episode-list";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "PathoTalks Podcast",
@@ -21,16 +23,9 @@ const COMING_SOON = [
   "Oncologist",
 ];
 
-/** Turn a Spotify episode link into its embeddable player URL, if possible. */
-const toEmbedUrl = (link: string): string | null => {
-  const match = link.match(/open\.spotify\.com\/episode\/([A-Za-z0-9]+)/);
-  return match ? `https://open.spotify.com/embed/episode/${match[1]}` : null;
-};
-
 const PodcastPage = (): React.ReactElement => {
   const episodes = getEpisodes();
   const latest = episodes[0];
-  const embedUrl = latest ? toEmbedUrl(latest.link) : null;
 
   return (
     <>
@@ -92,36 +87,46 @@ const PodcastPage = (): React.ReactElement => {
                     className="absolute -top-20 -right-12 h-72 w-72"
                   />
                 </div>
-                <div className="relative">
-                  <span className="font-display text-xs font-semibold tracking-wide text-marigold-soft uppercase">
-                    Latest episode · Episode {latest.episode}
-                  </span>
-                  <h2
-                    id="featured-heading"
-                    className="mt-3 font-display text-2xl font-semibold sm:text-3xl"
+                <div className="relative flex flex-col items-center gap-7 sm:flex-row sm:items-center">
+                  {/* Episode art placeholder */}
+                  <div
+                    aria-hidden="true"
+                    className="relative flex h-40 w-40 shrink-0 items-center justify-center"
                   >
-                    {latest.title}
-                  </h2>
-                  {(latest.guest || latest.specialty) && (
-                    <p className="mt-2 text-[#E4D9BE]">
-                      {latest.guest}
-                      {latest.guest && latest.specialty ? " — " : ""}
-                      {latest.specialty}
-                    </p>
-                  )}
-                  {embedUrl && (
-                    <div className="mt-6 overflow-hidden rounded-2xl">
-                      <iframe
-                        src={embedUrl}
-                        title={`Spotify player: ${latest.title}`}
-                        loading="lazy"
-                        width="100%"
-                        height={180}
-                        style={{ border: 0 }}
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      />
-                    </div>
-                  )}
+                    <Cell color="marigold" variant={2} animate="breathe" className="absolute inset-0" />
+                    <span className="relative font-display text-5xl font-semibold text-moss-deep">
+                      {latest.episode}
+                    </span>
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <span className="font-display text-xs font-semibold tracking-wide text-marigold-soft uppercase">
+                      Latest episode · Episode {latest.episode}
+                    </span>
+                    <h2
+                      id="featured-heading"
+                      className="mt-3 font-display text-2xl font-semibold sm:text-3xl"
+                    >
+                      {latest.title}
+                    </h2>
+                    {(latest.guest || latest.specialty) && (
+                      <p className="mt-2 text-[#E4D9BE]">
+                        {latest.guest}
+                        {latest.guest && latest.specialty ? " — " : ""}
+                        {latest.specialty}
+                      </p>
+                    )}
+                    <p className="mt-3 max-w-xl text-[#E4D9BE]">{latest.summary}</p>
+                    <a
+                      href={latest.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(buttonVariants({ size: "md" }), "mt-6")}
+                    >
+                      <Play aria-hidden="true" className="h-5 w-5" />
+                      Listen on Spotify
+                      <span className="sr-only"> — {latest.title}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </Reveal>
