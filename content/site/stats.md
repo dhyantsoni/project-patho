@@ -1,19 +1,19 @@
 ---
 # Impact stats shown on the Home page. Edit the numbers here to update them
-# everywhere. Verify against the live site before launch.
+# everywhere. Labels match the live site verbatim.
 stats:
-  - label: "Volunteer hours"
+  - label: "Hours Volunteered"
     value: "800+"
-  - label: "Instagram followers"
+  - label: "Instagram Followers"
     value: "500+"
-  - label: "Students reached"
+  - label: "Students Reached"
     value: "100+"
-  - label: "Active volunteers"
+  - label: "Volunteers"
     value: "30+"
-  - label: "Care packages donated"
+  - label: "Care Packages Donated"
     value: "85"
-  - label: "Events hosted"
+  - label: "Events Hosted"
     value: "10+"
-  - label: "Podcast episodes"
+  - label: "Podcast Episodes Published"
     value: "10"
 ---
