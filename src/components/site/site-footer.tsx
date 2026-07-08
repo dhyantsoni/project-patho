@@ -3,7 +3,7 @@ import { Instagram, Mail } from "lucide-react";
 import { nav, site } from "@/lib/site";
 
 export const SiteFooter = (): React.ReactElement => {
-  const year = 2026;
+  const year = new Date().getFullYear();
   return (
     <footer className="relative mt-24 overflow-hidden bg-moss-deep text-[#F3EAD7]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">

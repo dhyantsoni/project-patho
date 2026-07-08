@@ -6,7 +6,7 @@ alt: "Info poster about Epilepsy for ages 7 to 11"
 pdf: ""
 credit: "Project Patho team"
 category: "Neurological"
-quiz: "Quiz available"
+quiz: "Quiz coming soon"
 order: 3
 ---
 

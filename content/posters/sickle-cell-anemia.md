@@ -5,7 +5,7 @@ image: "poster-sickle-cell-anemia.webp"
 alt: "Info poster about Sickle Cell Anemia for ages 7 to 11"
 pdf: ""
 credit: "Aarini Parikh"
-category: "Blood & Genetic"
+category: "Blood"
 quiz: "Quiz coming soon"
 order: 6
 ---

@@ -6,7 +6,7 @@ alt: "Info poster about Osteogenesis Imperfecta for ages 7 to 11"
 pdf: ""
 credit: "Jolina Jian"
 category: "Genetic"
-quiz: "Quick quiz available"
+quiz: "Quiz coming soon"
 order: 5
 ---
 

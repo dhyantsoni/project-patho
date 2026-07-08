@@ -15,6 +15,10 @@ export const site = {
   instagramHandle: "@projectpatho",
   interestForm:
     "https://docs.google.com/forms/d/e/1FAIpQLScQMuYxPLsD_xrC2x-MHdtHhm0oHsjykwNtABSAxWM7-BM4BA/viewform",
+  // Spotify SHOW page for PathoTalks (so people can follow/subscribe). Paste the
+  // show URL here (open.spotify.com/show/…) and a "Follow PathoTalks" button
+  // appears on the Podcast page. Leave empty to hide it.
+  podcastShow: "",
   fiscalSponsor: {
     name: "Brushstrokes for Biodiversity",
     note: "Fiscally sponsored by Brushstrokes for Biodiversity, a 501(c)(3) nonprofit organization.",

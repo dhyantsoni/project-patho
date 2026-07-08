@@ -78,14 +78,9 @@ export const PosterCard = ({ poster, index = 0 }: PosterCardProps): React.ReactE
             <span aria-hidden="true" />
           )}
 
-          <div>
-            <p className="font-display text-2xl leading-tight font-semibold text-ink drop-shadow-sm sm:text-3xl">
-              {poster.title}
-            </p>
-            <p className="mt-3 text-sm font-medium text-ink-soft">
-              Poster artwork by {poster.credit ?? "the Project Patho team"} — coming soon
-            </p>
-          </div>
+          <span className="inline-flex w-fit items-center rounded-full bg-background/70 px-3 py-1 text-xs font-medium text-ink-soft">
+            Artwork on its way
+          </span>
         </div>
         </div>
       )}

@@ -6,7 +6,7 @@ alt: "Info poster about Cystic Fibrosis for ages 7 to 11"
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"
-quiz: "Quiz available"
+quiz: "Quiz coming soon"
 order: 2
 ---
 

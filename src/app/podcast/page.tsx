@@ -1,6 +1,7 @@
 import { pageMeta } from "@/lib/seo";
 import { Headphones, Play } from "lucide-react";
 import { getEpisodes } from "@/lib/content";
+import { site } from "@/lib/site";
 import { Container } from "@/components/ui/container";
 import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
@@ -69,6 +70,19 @@ const PodcastPage = (): React.ReactElement => {
                 help people and what makes their field fascinating.
               </p>
             </Reveal>
+            {site.podcastShow ? (
+              <Reveal delay={220}>
+                <a
+                  href={site.podcastShow}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(buttonVariants({ size: "md" }), "mt-8")}
+                >
+                  <Headphones aria-hidden="true" className="h-5 w-5" />
+                  Follow PathoTalks on Spotify
+                </a>
+              </Reveal>
+            ) : null}
           </div>
         </Container>
       </section>

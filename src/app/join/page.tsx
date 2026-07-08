@@ -78,8 +78,6 @@ const WAYS: Way[] = [
   },
 ];
 
-const embedSrc = site.interestForm.replace("/viewform", "/viewform?embedded=true");
-
 const JoinPage = (): React.ReactElement => {
   const stats = getStats();
 
@@ -274,35 +272,13 @@ const JoinPage = (): React.ReactElement => {
             </div>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-[2rem] border border-border bg-surface">
-            <iframe
-              src={embedSrc}
-              title="ProjectPatho Interest Form"
-              loading="lazy"
-              width="100%"
-              height={700}
-              style={{ border: 0 }}
-              className="block w-full"
-            >
-              Loading the interest form…
-            </iframe>
-          </div>
-          <p className="mt-4 text-center text-sm text-ink-soft">
-            Form not loading? Use the{" "}
-            <a
-              href={site.interestForm}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-brand-deep underline underline-offset-2 hover:text-brand"
-            >
-              interest form link
-            </a>{" "}
-            instead, or{" "}
+          <p className="relative mt-6 text-center text-sm text-[#E4D9BE]">
+            The form opens in a new tab. Prefer to ask first?{" "}
             <Link
               href="/contact"
-              className="font-semibold text-brand-deep underline underline-offset-2 hover:text-brand"
+              className="font-semibold text-marigold-soft underline underline-offset-2 hover:text-white"
             >
-              contact us
+              Contact us
             </Link>{" "}
             with any questions.
           </p>

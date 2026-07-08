@@ -6,7 +6,7 @@ alt: "Info poster about Bipolar Disorder for ages 7 to 11"
 pdf: ""
 credit: "Ridah Mannat"
 category: "Mental Health"
-quiz: "Quiz available"
+quiz: "Quiz coming soon"
 order: 1
 ---
 
