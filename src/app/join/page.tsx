@@ -15,6 +15,7 @@ import { getStats } from "@/lib/content";
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { Cell } from "@/components/organic/cell";
+import { PhotoFrame } from "@/components/organic/photo-frame";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
@@ -159,6 +160,34 @@ const JoinPage = (): React.ReactElement => {
               </ul>
             </Reveal>
           )}
+        </Container>
+      </section>
+
+      {/* ===== Photo band ===== */}
+      <section className="pb-4">
+        <Container>
+          <Reveal>
+            <div className="grid items-center gap-8 rounded-[2.5rem] bg-surface p-6 sm:grid-cols-2 sm:p-10">
+              <div className="mx-auto w-full max-w-sm sm:max-w-none">
+                <PhotoFrame
+                  src="/images/classroom-workshop.webp"
+                  alt="Young children working together on a colorful art and science activity at a classroom table"
+                  shape={1}
+                  sizes="(max-width: 768px) 80vw, 45vw"
+                />
+              </div>
+              <div>
+                <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+                  Every volunteer makes a classroom brighter
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                  From library workshops to care-package drives, our volunteers turn big, scary
+                  medical words into something kids can understand — and feel good about. You bring
+                  the curiosity; we&apos;ll show you the rest.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

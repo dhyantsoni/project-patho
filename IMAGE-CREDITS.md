@@ -1,22 +1,48 @@
 # Image credits
 
-Every image used on the site is listed here with its source and license, so we
-stay compliant with open-license terms. Add one row per image.
+All imagery on the ProjectPatho site is either (a) original artwork we generate
+(the "living cell" SVG motif and the social-share card), (b) openly-licensed
+photography credited below, or (c) clearly-labeled placeholders for photos the
+team will supply (headshots, info-poster artwork, event photos).
 
-**When you add a photo, add a line here.** For team/event photos the org owns,
-put "ProjectPatho (own photo)" as the source.
+## Openly-licensed photography
 
-| File (in public/images/) | Description / alt | Source | License | Link |
-|--------------------------|-------------------|--------|---------|------|
-| _example: kids-learning.webp_ | Children reading together at a workshop | Unsplash | Unsplash License | https://unsplash.com/photos/xxxx |
-| | | | | |
+| File | Source & title | Author | License | Where used |
+|------|----------------|--------|---------|------------|
+| `public/images/students-learning.webp` | Flickr — "Students Learning" ([source](https://www.flickr.com/photos/togawanderings/6416178725)) | ToGa Wanderings | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | Home — mission section |
+| `public/images/classroom-workshop.webp` | Flickr — "kindergarten, in session" ([source](https://www.flickr.com/photos/woodleywonderworks/2885861465)) | woodleywonderworks | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | Join — photo band |
+
+Changes made: images were resized and converted to WebP (via `npm run images`);
+no other modifications. Attribution retained here per the CC BY 2.0 terms.
+
+## Original assets (created for this site)
+
+| File | Description | License |
+|------|-------------|---------|
+| `public/og.png` | Social-share card, generated from an on-brand SVG (`scripts/make-og.mjs`) | Original — © ProjectPatho |
+| `src/app/icon.svg` | Favicon — the "living cell" logo mark | Original — © ProjectPatho |
+| `<Cell>` SVG blobs & poster/episode/team placeholders | Inline SVG illustration, the site's signature motif | Original — © ProjectPatho |
+
+## Team-supplied images (labeled placeholders until provided)
+
+These slots render tasteful, clearly-labeled placeholders today. Dropping a real
+file into `public/images/` and naming it in the matching content file makes it
+appear (see `CONTENT-GUIDE.md`):
+
+- **Team headshots** — `team-firstname-lastname.webp` per `content/team/*.md`.
+- **Info-poster artwork** — the team's own infographics, per `content/posters/*.md`.
+- **Event photos** — optional, per `content/events/*.md`.
+- **Podcast episode art** — optional, per `content/podcast/*.md`.
+
+## How to add a new image
+
+1. Drop the file into `public/images/` (JPG/PNG is fine).
+2. Run `npm run images` to generate an optimized `.webp`.
+3. Reference it from the relevant content file, and add a credit row above if it
+   came from an external source. Always include meaningful `alt` text.
 
 ## Where to find openly-licensed images
 
-- Unsplash — https://unsplash.com (Unsplash License, free to use)
-- Pexels — https://pexels.com (Pexels License, free to use)
-- Wikimedia Commons — https://commons.wikimedia.org (check each file's license)
 - Openverse — https://openverse.org (aggregates CC-licensed media)
-
-Always confirm the license on the source page and record it above. Prefer images
-that don't require attribution, but record attribution when the license needs it.
+- Unsplash — https://unsplash.com · Pexels — https://pexels.com
+- Wikimedia Commons — https://commons.wikimedia.org (check each file's license)

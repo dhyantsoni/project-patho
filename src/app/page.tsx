@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen, Calendar, Mic, Users, HeartHandshake } from "luci
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { Cell } from "@/components/organic/cell";
+import { PhotoFrame } from "@/components/organic/photo-frame";
 import { Reveal } from "@/components/motion/reveal";
 import { getStats } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -168,28 +169,36 @@ const HomePage = (): React.ReactElement => {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <div className="relative mx-auto aspect-square w-full max-w-md">
-                <Cell color="brand" variant={0} animate="breathe" className="absolute inset-0" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 p-10">
-                    {[
-                      { v: "Reduce", l: "stigma" },
-                      { v: "Inspire", l: "empathy" },
-                      { v: "Spark", l: "curiosity" },
-                      { v: "Teach", l: "science" },
-                    ].map((item) => (
-                      <div
-                        key={item.l}
-                        className="flex aspect-square flex-col items-center justify-center rounded-3xl bg-surface/90 p-4 text-center shadow-sm backdrop-blur-sm"
-                      >
-                        <span className="font-display text-xl font-semibold text-brand-deep">
-                          {item.v}
-                        </span>
-                        <span className="text-sm text-ink-soft">{item.l}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="relative mx-auto w-full max-w-md">
+                <Cell
+                  color="marigold-soft"
+                  variant={2}
+                  animate="drift-slow"
+                  opacity={0.6}
+                  aria-hidden="true"
+                  className="absolute -top-8 -right-6 -z-10 h-40 w-40"
+                />
+                <PhotoFrame
+                  src="/images/students-learning.webp"
+                  alt="Elementary school students smiling and listening attentively at their desks"
+                  shape={0}
+                />
+                <ul className="mt-6 flex flex-wrap justify-center gap-2.5">
+                  {[
+                    { v: "Reduce", l: "stigma" },
+                    { v: "Inspire", l: "empathy" },
+                    { v: "Spark", l: "curiosity" },
+                    { v: "Teach", l: "science" },
+                  ].map((item) => (
+                    <li
+                      key={item.l}
+                      className="rounded-full border border-border bg-surface px-4 py-2 text-sm"
+                    >
+                      <span className="font-semibold text-brand-deep">{item.v}</span>{" "}
+                      <span className="text-ink-soft">{item.l}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>
