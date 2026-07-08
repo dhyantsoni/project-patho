@@ -1,0 +1,239 @@
+import Link from "next/link";
+import { ArrowRight, BookOpen, Calendar, Mic, Users, HeartHandshake } from "lucide-react";
+import { Container } from "@/components/ui/container";
+import { buttonVariants } from "@/components/ui/button";
+import { Cell } from "@/components/organic/cell";
+import { Reveal } from "@/components/motion/reveal";
+import { getStats } from "@/lib/content";
+import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
+
+const pathways = [
+  {
+    href: "/resources",
+    label: "Info Posters",
+    desc: "Friendly, kid-first guides to conditions like epilepsy, sickle cell, and more — made for ages 7–11.",
+    icon: BookOpen,
+    color: "text-brand-deep",
+  },
+  {
+    href: "/podcast",
+    label: "PathoTalks Podcast",
+    desc: "Ten conversations with real doctors and scientists about the work they do and why it matters.",
+    icon: Mic,
+    color: "text-moss-deep",
+  },
+  {
+    href: "/events",
+    label: "Events",
+    desc: "Workshops, care-package drives, and community days that bring science to life.",
+    icon: Calendar,
+    color: "text-brand-deep",
+  },
+  {
+    href: "/team",
+    label: "Meet the Team",
+    desc: "The student leaders behind ProjectPatho, and what they care about.",
+    icon: Users,
+    color: "text-moss-deep",
+  },
+];
+
+const HomePage = (): React.ReactElement => {
+  const stats = getStats();
+
+  return (
+    <>
+      {/* ===== Hero ===== */}
+      <section className="relative overflow-hidden pt-10 pb-20 sm:pt-16 sm:pb-28">
+        {/* Signature drifting cell backdrop (decorative) */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <Cell
+            color="marigold-soft"
+            variant={0}
+            animate="drift-slow"
+            opacity={0.5}
+            className="absolute -top-16 -right-16 h-80 w-80"
+          />
+          <Cell
+            color="moss"
+            variant={1}
+            animate="drift"
+            opacity={0.14}
+            className="absolute top-40 -left-24 h-72 w-72"
+          />
+          <Cell
+            color="brand"
+            variant={2}
+            animate="breathe"
+            opacity={0.1}
+            className="absolute -bottom-24 right-1/4 h-64 w-64"
+          />
+        </div>
+
+        <Container>
+          <div className="mx-auto max-w-3xl text-center">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-surface px-4 py-1.5 text-sm font-semibold text-brand-deep">
+                <span className="h-2 w-2 rounded-full bg-marigold" aria-hidden="true" />
+                {site.tagline}
+              </span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="mt-6 font-display text-5xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-6xl md:text-7xl">
+                Understanding disease,
+                <span className="block text-brand">one young mind at a time.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+                We help elementary and middle schoolers understand rare and misunderstood
+                conditions — to reduce stigma, grow empathy, and spark a lifelong love of science.
+              </p>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link href="/resources" className={cn(buttonVariants({ size: "lg" }))}>
+                  Explore our posters
+                  <ArrowRight aria-hidden="true" className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/podcast"
+                  className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+                >
+                  Listen to PathoTalks
+                </Link>
+              </div>
+              <p className="mt-5 text-sm text-ink-soft">
+                Infographics designed for students aged 7–11.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== Impact band ===== */}
+      <section aria-labelledby="impact-heading" className="relative">
+        <Container>
+          <div className="overflow-hidden rounded-[2.5rem] bg-moss-deep px-6 py-14 text-[#F3EAD7] sm:px-12">
+            <h2 id="impact-heading" className="text-center font-display text-3xl font-semibold">
+              Our impact so far
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-center text-[#E4D9BE]">
+              A student team, a growing community, and a lot of curiosity.
+            </p>
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+              {stats.map((stat, i) => (
+                <Reveal as="div" key={stat.label} delay={i * 60} className="text-center">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block font-display text-4xl font-semibold text-marigold-soft sm:text-5xl">
+                      {stat.value}
+                    </span>
+                    <span className="mt-2 block text-sm font-medium text-[#E4D9BE]">
+                      {stat.label}
+                    </span>
+                  </dd>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== About / mission ===== */}
+      <section id="about" className="scroll-mt-24 py-20 sm:py-28">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <Reveal>
+              <div className="relative">
+                <span className="font-display text-sm font-semibold tracking-wide text-brand-deep uppercase">
+                  Our mission
+                </span>
+                <h2 className="mt-3 font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+                  Big science, made small enough to love.
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed text-ink-soft">{site.mission}</p>
+                <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                  We teach medical and biological concepts through posters, workshops, a podcast,
+                  and social media — making complex topics accessible, accurate, and genuinely fun.
+                </p>
+                <Link
+                  href="/join"
+                  className={cn(buttonVariants({ variant: "secondary" }), "mt-8")}
+                >
+                  <HeartHandshake aria-hidden="true" className="h-5 w-5" />
+                  Get involved
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="relative mx-auto aspect-square w-full max-w-md">
+                <Cell color="brand" variant={0} animate="breathe" className="absolute inset-0" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-4 p-10">
+                    {[
+                      { v: "Reduce", l: "stigma" },
+                      { v: "Inspire", l: "empathy" },
+                      { v: "Spark", l: "curiosity" },
+                      { v: "Teach", l: "science" },
+                    ].map((item) => (
+                      <div
+                        key={item.l}
+                        className="flex aspect-square flex-col items-center justify-center rounded-3xl bg-surface/90 p-4 text-center shadow-sm backdrop-blur-sm"
+                      >
+                        <span className="font-display text-xl font-semibold text-brand-deep">
+                          {item.v}
+                        </span>
+                        <span className="text-sm text-ink-soft">{item.l}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== Pathways ===== */}
+      <section aria-labelledby="explore-heading" className="pb-24">
+        <Container>
+          <Reveal>
+            <h2
+              id="explore-heading"
+              className="font-display text-3xl font-semibold text-ink sm:text-4xl"
+            >
+              Where would you like to start?
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {pathways.map((p, i) => (
+              <Reveal as="article" key={p.href} delay={i * 70}>
+                <Link
+                  href={p.href}
+                  className="group relative flex h-full flex-col rounded-[1.75rem] border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_40px_-20px_rgba(44,33,23,0.35)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                >
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-2">
+                    <p.icon aria-hidden="true" className={cn("h-7 w-7", p.color)} />
+                  </span>
+                  <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{p.label}</h3>
+                  <p className="mt-2 flex-1 leading-relaxed text-ink-soft">{p.desc}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-semibold text-brand-deep">
+                    Explore
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+};
+
+export default HomePage;
