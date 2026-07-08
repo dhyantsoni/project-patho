@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mic } from "lucide-react";
 import type { Episode } from "@/lib/content";
 import { buttonVariants } from "@/components/ui/button";
@@ -31,30 +32,42 @@ export const EpisodeCard = ({ episode, index }: EpisodeCardProps): React.ReactEl
         delay={(index % 3) * 80}
         className="group flex h-full flex-col gap-6 rounded-[2rem] border border-border bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(44,33,23,0.35)] focus-within:-translate-y-1 sm:flex-row sm:items-start sm:p-7"
       >
-        {/* Placeholder art: organic blob + episode number + mic */}
-        <div className="relative flex h-28 w-28 shrink-0 items-center justify-center sm:h-32 sm:w-32">
-          <Cell
-            color={color}
-            variant={variant}
-            animate="breathe"
-            className="absolute inset-0 h-full w-full"
-          />
-          <span
-            className={cn(
-              "relative font-display text-4xl font-semibold sm:text-5xl",
-              numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
-            )}
-          >
-            {episode.episode}
-          </span>
-          <Mic
-            aria-hidden="true"
-            className={cn(
-              "absolute bottom-2 right-2 h-5 w-5",
-              numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
-            )}
-          />
-        </div>
+        {/* Episode art when supplied; otherwise organic blob + episode number. */}
+        {episode.image ? (
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl shadow-sm sm:h-32 sm:w-32">
+            <Image
+              src={episode.image}
+              alt={episode.alt || `Cover art for Episode ${episode.episode}: ${episode.title}`}
+              fill
+              sizes="128px"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <div className="relative flex h-28 w-28 shrink-0 items-center justify-center sm:h-32 sm:w-32">
+            <Cell
+              color={color}
+              variant={variant}
+              animate="breathe"
+              className="absolute inset-0 h-full w-full"
+            />
+            <span
+              className={cn(
+                "relative font-display text-4xl font-semibold sm:text-5xl",
+                numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
+              )}
+            >
+              {episode.episode}
+            </span>
+            <Mic
+              aria-hidden="true"
+              className={cn(
+                "absolute right-2 bottom-2 h-5 w-5",
+                numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
+              )}
+            />
+          </div>
+        )}
 
         {/* Body */}
         <div className="flex flex-1 flex-col">

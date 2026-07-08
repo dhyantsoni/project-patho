@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import type { TeamMember } from "@/lib/content";
 import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
-import { cn } from "@/lib/utils";
 
 /**
  * Data-driven Team grid built as a small compound component. `TeamGrid` owns
@@ -37,18 +37,30 @@ export const TeamCard = ({ member, index = 0 }: TeamCardProps): React.ReactEleme
 
   return (
     <article className="group flex h-full flex-col rounded-[1.75rem] border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_40px_-20px_rgba(44,33,23,0.35)]">
-      {/* Cell-framed initials avatar (headshots coming soon) */}
-      <div className="relative h-24 w-24">
-        <Cell color={color} variant={variant} animate="breathe" className="absolute inset-0" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            aria-hidden="true"
-            className="font-display text-2xl font-semibold text-surface"
-          >
-            {initials}
-          </span>
+      {/* Headshot when supplied; otherwise a Cell-framed initials avatar. */}
+      {member.image ? (
+        <div
+          className="relative h-24 w-24 overflow-hidden shadow-sm"
+          style={{ borderRadius: "42% 58% 63% 37% / 41% 44% 56% 59%" }}
+        >
+          <Image
+            src={member.image}
+            alt={member.alt || `Headshot of ${member.name}`}
+            fill
+            sizes="96px"
+            className="object-cover"
+          />
         </div>
-      </div>
+      ) : (
+        <div className="relative h-24 w-24">
+          <Cell color={color} variant={variant} animate="breathe" className="absolute inset-0" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span aria-hidden="true" className="font-display text-2xl font-semibold text-surface">
+              {initials}
+            </span>
+          </div>
+        </div>
+      )}
 
       <h3 className="mt-6 font-display text-2xl font-semibold text-ink">{member.name}</h3>
 

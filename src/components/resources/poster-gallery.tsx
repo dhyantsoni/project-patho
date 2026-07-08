@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { HelpCircle } from "lucide-react";
 import type { Poster } from "@/lib/content";
 import { Cell } from "@/components/organic/cell";
@@ -33,9 +34,25 @@ export const PosterCard = ({ poster, index = 0 }: PosterCardProps): React.ReactE
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_40px_-20px_rgba(44,33,23,0.35)]">
-      {/* Portrait placeholder frame — the team's own poster artwork is coming soon */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-surface-2">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      {/* Poster artwork when supplied; otherwise a labelled placeholder frame. */}
+      {poster.image ? (
+        <div className="relative aspect-[3/4] overflow-hidden bg-surface-2">
+          <Image
+            src={poster.image}
+            alt={poster.alt || `Info poster about ${poster.title}`}
+            fill
+            sizes="(max-width: 768px) 90vw, 30vw"
+            className="object-cover"
+          />
+          {poster.category ? (
+            <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-background/85 px-3 py-1 font-display text-xs font-semibold tracking-wide text-brand-deep uppercase">
+              {poster.category}
+            </span>
+          ) : null}
+        </div>
+      ) : (
+        <div className="relative aspect-[3/4] overflow-hidden bg-surface-2">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <Cell
             color={color}
             variant={variant}
@@ -70,7 +87,8 @@ export const PosterCard = ({ poster, index = 0 }: PosterCardProps): React.ReactE
             </p>
           </div>
         </div>
-      </div>
+        </div>
+      )}
 
       {/* Card body */}
       <div className="flex flex-1 flex-col p-7">

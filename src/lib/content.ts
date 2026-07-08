@@ -12,6 +12,20 @@ import matter from "gray-matter";
  */
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+const PUBLIC_IMAGES_DIR = path.join(process.cwd(), "public", "images");
+
+/**
+ * Resolves a content `image:` filename to a usable `/images/…` path — but only
+ * if the file actually exists in public/images. Otherwise returns undefined so
+ * the component can show its graceful placeholder. This is what makes the
+ * documented "drop a photo in public/images and name it" flow work: name it and
+ * it appears; leave it and you get a tasteful placeholder, never a broken image.
+ */
+const resolveImage = (file?: string): string | undefined => {
+  if (!file) return undefined;
+  const clean = file.replace(/^\/?(images\/)?/, "");
+  return fs.existsSync(path.join(PUBLIC_IMAGES_DIR, clean)) ? `/images/${clean}` : undefined;
+};
 
 type Frontmatter = Record<string, unknown>;
 
@@ -54,7 +68,7 @@ export const getTeam = (): TeamMember[] =>
       slug: e.slug,
       name: String(e.data.name ?? ""),
       role: String(e.data.role ?? ""),
-      image: e.data.image ? String(e.data.image) : undefined,
+      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
       order: Number(e.data.order ?? 99),
       links: (e.data.links as TeamMember["links"]) ?? undefined,
@@ -89,7 +103,7 @@ export const getEpisodes = (): Episode[] =>
       interviewer: e.data.interviewer ? String(e.data.interviewer) : undefined,
       date: String(e.data.date ?? ""),
       summary: String(e.data.summary ?? ""),
-      image: e.data.image ? String(e.data.image) : undefined,
+      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
       link: String(e.data.link ?? ""),
       embed: e.data.embed ? String(e.data.embed) : undefined,
@@ -122,7 +136,7 @@ export const getEvents = (): EventItem[] =>
       status: (e.data.status === "upcoming" ? "upcoming" : "past") as "upcoming" | "past",
       location: String(e.data.location ?? ""),
       summary: String(e.data.summary ?? ""),
-      image: e.data.image ? String(e.data.image) : undefined,
+      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
       link: e.data.link ? String(e.data.link) : undefined,
       cardsForKids: Boolean(e.data.cards_for_kids ?? false),
@@ -150,7 +164,7 @@ export const getPosters = (): Poster[] =>
       slug: e.slug,
       title: String(e.data.title ?? ""),
       summary: String(e.data.summary ?? ""),
-      image: e.data.image ? String(e.data.image) : undefined,
+      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
       pdf: e.data.pdf ? String(e.data.pdf) : undefined,
       credit: e.data.credit ? String(e.data.credit) : undefined,

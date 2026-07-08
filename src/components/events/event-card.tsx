@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import type { EventItem } from "@/lib/content";
 import { buttonVariants } from "@/components/ui/button";
@@ -27,6 +28,18 @@ export const EventCard = ({ event, index = 0 }: EventCardProps): React.ReactElem
 
   return (
     <article className="group flex h-full flex-col rounded-[1.75rem] border border-border bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_40px_-20px_rgba(44,33,23,0.35)]">
+      {event.image ? (
+        <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-2xl">
+          <Image
+            src={event.image}
+            alt={event.alt || `Photo from ${event.title}`}
+            fill
+            sizes="(max-width: 768px) 90vw, 30vw"
+            className="object-cover"
+          />
+        </div>
+      ) : null}
+
       <span
         className={cn(
           "inline-flex w-fit items-center rounded-full px-3.5 py-1.5 font-display text-sm font-semibold tracking-wide",
