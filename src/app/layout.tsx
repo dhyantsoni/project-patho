@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name}`,
+    title: `${site.name} — Teaching kids about diseases with empathy`,
     description: site.mission,
     images: ["/og.png"],
   },
