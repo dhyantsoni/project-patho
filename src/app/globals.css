@@ -111,7 +111,9 @@
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.015em;
-    color: var(--color-ink);
+    /* Inherit color from context so headings on dark sections read light.
+       Body sets ink as the default. */
+    color: inherit;
     text-wrap: balance;
   }
 
@@ -184,21 +186,25 @@
   animation: cell-drift-slow 14s ease-in-out infinite;
 }
 
-/* Reveal-on-load (JS adds .is-visible; CSS-only fallback keeps content visible) */
+/* Reveal-on-scroll. Content is visible by DEFAULT (no-JS users and crawlers see
+   everything). The hidden start state is applied only once JS confirms support
+   by adding `.reveal-ready` to <html> (see inline script in layout <head>). */
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
   transition:
     opacity 0.6s ease,
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+:root.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(18px);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
+:root.reveal-ready .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  :root.reveal-ready .reveal {
     opacity: 1;
     transform: none;
   }

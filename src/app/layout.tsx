@@ -58,6 +58,15 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }): React.ReactElement => {
   return (
     <html lang="en" className={`${fraunces.variable} ${epilogue.variable}`}>
+      <head>
+        {/* Enable scroll-reveal only when JS is available, before first paint,
+            so no-JS users and crawlers always see fully-visible content. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('reveal-ready')",
+          }}
+        />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to content
