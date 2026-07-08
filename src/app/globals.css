@@ -20,7 +20,7 @@
 
   /* Brand — terracotta (dominant) */
   --brand: #b4542b;
-  --brand-deep: #9e4a26; /* hover + body-size links */
+  --brand-deep: #8a3d22; /* hover + body-size links; AA on sand/surface/surface-2 */
 
   /* Moss (secondary) */
   --moss: #5a6b33; /* large text / fills */
@@ -33,7 +33,7 @@
   /* Warm neutrals */
   --clay: #b48a67;
   --border: #d3c3a3;
-  --ring: #9e4a26;
+  --ring: #8a3d22;
 
   --radius: 1.25rem; /* 20px — rounded, organic */
 }
