@@ -13,8 +13,15 @@ summary: "What the event is and who it's for."
 # Optional photo: put the file in public/images/ and name it here.
 image: "event-blood-drive.webp"
 alt: "Short description of the event photo"
+# Optional extra photos. The first one also appears in the "Moments from our
+# workshops" gallery at the bottom of the Events page. Delete if you have none.
+gallery:
+  - image: "event-blood-drive-2.webp"
+    alt: "Short description of the second photo"
 # Optional sign-up / info link.
 link: ""
+# Optional wording for that link's button (defaults to "More about <title>").
+linkLabel: ""
 # Set to true only for the "Cards for Hospitalized Kids" recurring program items.
 cards_for_kids: false
 ---

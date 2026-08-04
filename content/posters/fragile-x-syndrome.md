@@ -2,7 +2,7 @@
 title: "Fragile X Syndrome"
 summary: "Fragile X syndrome is a genetic condition that can affect how a person learns, talks, and interacts with others. Everyone's experience is different, and patience, kindness, and support help people with Fragile X thrive."
 image: "poster-fragile-x-syndrome.webp"
-alt: "Info poster about Fragile X Syndrome for ages 7 to 11"
+alt: "Info poster about Fragile X syndrome: what causes it, symptoms, who is affected, and how we can help"
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"

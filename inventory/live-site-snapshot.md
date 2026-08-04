@@ -36,15 +36,15 @@
 
 ## 2. Impact stats (VERIFIED against live site 2026-07-07 — all confirmed)
 
-| Value | Label (verbatim) |
-|-------|------------------|
-| 800+ | Hours Volunteered |
-| 500+ | Instagram Followers |
-| 100+ | Students Reached |
-| 30+  | Volunteers |
-| 85   | Care Packages Donated |
-| 10+  | Events Hosted |
-| 10   | Podcast Episodes Published |
+| Value | Label (verbatim)           |
+| ----- | -------------------------- |
+| 800+  | Hours Volunteered          |
+| 500+  | Instagram Followers        |
+| 100+  | Students Reached           |
+| 30+   | Volunteers                 |
+| 85    | Care Packages Donated      |
+| 10+   | Events Hosted              |
+| 10    | Podcast Episodes Published |
 
 ## 3. Team — "Our Team" (6 members, bios verbatim)
 
@@ -86,22 +86,24 @@ Poster artwork lives on Google Drive on the live site (team's original work). In
 rebuild these are **team-supplied files** (labeled placeholder until dropped in) plus
 our own kid-friendly summary text. Credits below are verbatim from the live pages.
 
-| Topic | Credit (verbatim) | Quiz status |
-|-------|-------------------|-------------|
-| Bipolar Disorder | "Bipolar Disorder.pdf.png" by Ridah Mannat | Quiz Time! (Mental Health Awareness Month feature) |
-| Cystic Fibrosis | "Infographic written by Aditi Jain" | Quiz Time |
-| Epilepsy | 4 poster images | Quiz Time |
-| Fragile X Syndrome | "Infographic by Aditi Jain" | (no quiz noted) |
-| Osteogenesis Imperfecta | "Infographic written by Jolina Jian" (3 images) | "Quick Quiz to see what you have learned!" |
-| Sickle Cell Anemia | "Written by Aarini Parikh" | "Quiz coming soon!" |
+| Topic                   | Credit (verbatim)                               | Quiz status                                        |
+| ----------------------- | ----------------------------------------------- | -------------------------------------------------- |
+| Bipolar Disorder        | "Bipolar Disorder.pdf.png" by Ridah Mannat      | Quiz Time! (Mental Health Awareness Month feature) |
+| Cystic Fibrosis         | "Infographic written by Aditi Jain"             | Quiz Time                                          |
+| Epilepsy                | 4 poster images                                 | Quiz Time                                          |
+| Fragile X Syndrome      | "Infographic by Aditi Jain"                     | (no quiz noted)                                    |
+| Osteogenesis Imperfecta | "Infographic written by Jolina Jian" (3 images) | "Quick Quiz to see what you have learned!"         |
+| Sickle Cell Anemia      | "Written by Aarini Parikh"                      | "Quiz coming soon!"                                |
 
 ## 5. Events
 
 ### Upcoming Events
+
 - **None currently listed** on the live site (page exists, empty). Rebuild keeps the
   section and shows a friendly empty-state; data-driven so new events are trivial.
 
 ### Past Events (10, verbatim, newest first)
+
 1. 6/26/26 — **Neurology Event** — 4s Library
 2. 4/8/26 — **Care Package Donation** — Ronald McDonald House Charities
 3. 1/24/26 — **First Aid Workshop** — 4s Library
@@ -114,6 +116,7 @@ our own kid-friendly summary text. Credits below are verbatim from the live page
 10. 7/22 — **Immune System Workshop** — Pacific Highlands Ranch
 
 ### Cards for Hospitalized Kids (verbatim gist)
+
 - Description: "Cards for Hospitilized Patients is a project focused on spreading
   love and hope through difficult times." [note: live site misspells "Hospitalized"]
 - Specially drawn **animal artwork** goes into small gifts for local hospital
@@ -127,18 +130,18 @@ our own kid-friendly summary text. Credits below are verbatim from the live page
 Intro: "Welcome to PathoTalks." A trailer is available on Spotify. Episodes are guest
 interviews conducted by team members.
 
-| Ep | Guest & topic (verbatim gist) | Interviewer | Spotify link |
-|----|-------------------------------|-------------|--------------|
-| 1 | Dr. Hawkins (neurologist, Kaiser) — her experience with epilepsy | Prisha & Jolina | https://open.spotify.com/episode/3CYONWImVA4X3Y6btZrVj4 |
-| 2 | Dr. Hou (ophthalmologist, National Taiwan University Hospital) | Jolina | https://spotifycreators-web.app.link/e/dKzdLdTHvWb |
-| 3 | Dr. Kench (physical therapist) — National Physical Therapy Month | Aarini | https://open.spotify.com/episode/668BNegRSBd4dSBJBc7fQl |
-| 4 | Dr. Sanga Mitra Boppudi (molecular biologist) — innovation in cancer research, assay development, scientific breakthroughs | Ridah | https://open.spotify.com/episode/1B7gVeyXasqRATIfmdXb9a |
-| 5 | Dr. Savita Bhakta (psychiatrist) — how mental health treatment works; therapy & neuroscience for lifelong well-being | Aarini & Aditi | https://open.spotify.com/episode/4kh9c17S2RN9PVtRC3dd4l |
-| 6 | Dr. Quan (infectious disease doctor) — career path & how students get into medicine and public health | Jolina | https://open.spotify.com/episode/4rRv7JIVX5nl7cmknrTMOJ |
-| 7 | Dr. Ajay Varanasi (board-certified endocrinologist) — hormones and health; treating hormonal disorders | Aditi | https://open.spotify.com/episode/6M6Nfna9eSL5ImSgl1ovDx |
-| 8 | Vidya (speech-language pathologist) — communication & swallowing; work with children and older adults | Aditi | https://open.spotify.com/episode/0aWp7d18Dzlunw3De6FMjk |
-| 9 | Dr. Amit Kulkarni (critical care specialist) — the ICU; managing life-threatening conditions & ethical decisions | (not specified) | https://open.spotify.com/episode/2aFEyjX0rN9xoLg1c6iLR0 |
-| 10 | Dr. Sonal Bordia (physician-scientist, medical oncologist) — oncology drug development, clinical trials, biomarkers & AI in research | Aditi | https://open.spotify.com/episode/4Lx8FYRbliXGhc8WsfDr42 |
+| Ep  | Guest & topic (verbatim gist)                                                                                                        | Interviewer     | Spotify link                                            |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- | ------------------------------------------------------- |
+| 1   | Dr. Hawkins (neurologist, Kaiser) — her experience with epilepsy                                                                     | Prisha & Jolina | https://open.spotify.com/episode/3CYONWImVA4X3Y6btZrVj4 |
+| 2   | Dr. Hou (ophthalmologist, National Taiwan University Hospital)                                                                       | Jolina          | https://spotifycreators-web.app.link/e/dKzdLdTHvWb      |
+| 3   | Dr. Kench (physical therapist) — National Physical Therapy Month                                                                     | Aarini          | https://open.spotify.com/episode/668BNegRSBd4dSBJBc7fQl |
+| 4   | Dr. Sanga Mitra Boppudi (molecular biologist) — innovation in cancer research, assay development, scientific breakthroughs           | Ridah           | https://open.spotify.com/episode/1B7gVeyXasqRATIfmdXb9a |
+| 5   | Dr. Savita Bhakta (psychiatrist) — how mental health treatment works; therapy & neuroscience for lifelong well-being                 | Aarini & Aditi  | https://open.spotify.com/episode/4kh9c17S2RN9PVtRC3dd4l |
+| 6   | Dr. Quan (infectious disease doctor) — career path & how students get into medicine and public health                                | Jolina          | https://open.spotify.com/episode/4rRv7JIVX5nl7cmknrTMOJ |
+| 7   | Dr. Ajay Varanasi (board-certified endocrinologist) — hormones and health; treating hormonal disorders                               | Aditi           | https://open.spotify.com/episode/6M6Nfna9eSL5ImSgl1ovDx |
+| 8   | Vidya (speech-language pathologist) — communication & swallowing; work with children and older adults                                | Aditi           | https://open.spotify.com/episode/0aWp7d18Dzlunw3De6FMjk |
+| 9   | Dr. Amit Kulkarni (critical care specialist) — the ICU; managing life-threatening conditions & ethical decisions                     | (not specified) | https://open.spotify.com/episode/2aFEyjX0rN9xoLg1c6iLR0 |
+| 10  | Dr. Sonal Bordia (physician-scientist, medical oncologist) — oncology drug development, clinical trials, biomarkers & AI in research | Aditi           | https://open.spotify.com/episode/4Lx8FYRbliXGhc8WsfDr42 |
 
 **Upcoming episodes teased (verbatim list):** Colorectal surgeon, Neurologist,
 Therapist, Dentist, Neuroscientist, Oncologist.
@@ -164,7 +167,33 @@ Therapist, Dentist, Neuroscientist, Oncologist.
 
 ## Items the team must supply (flagged placeholders, per golden rule #4)
 
-- The 6 info-poster infographic files (team's original artwork).
-- Team member headshots (or use tasteful labeled avatar placeholders).
-- Real event photos (or licensed stock stand-ins, clearly credited).
-- Podcast episode art (or a generated PathoTalks template per episode).
+- ~~The 6 info-poster infographic files~~ — supplied 2026-08-03, see below.
+- ~~Team member headshots~~ — supplied 2026-08-03.
+- ~~Real event photos~~ — supplied 2026-08-03.
+- Podcast episode art (or a generated PathoTalks template per episode). Still open.
+
+---
+
+## Update — 2026-08-03 (photos supplied; live site had moved on)
+
+The team supplied the real photography, and the live Google Site had changed
+since the 2026-07-07 capture above. Differences folded into the rebuild:
+
+- **Team grew from 6 to 10**, plus 3 interns: Derek Tan (Director of Media),
+  Dhyan Soni (Director of Media), Grace Ma (Director of Events), Clara Brown
+  (Director of Podcast); interns Jisha Jain, Azita Newman, Vedika Gurushankar.
+  All bios and the officer order match the live page.
+- **Two events added:** 7/22/26 Respiratory System Event (4s Library, with a
+  ProjectPatho YouTube recap) and the 7/29/26 Skeletal System Event at the 4s
+  Ranch County Library. The latter is still listed as "upcoming" on the live
+  site even though the date has passed, so the rebuild lists it as past —
+  flip `status:` in `content/events/2026-07-29-skeletal-system-event.md` if it
+  was rescheduled.
+- **All 6 info posters are now on the site.** Epilepsy is credited to Jolina
+  Jian (the credit is written on the poster itself; the earlier capture showed
+  no credit line on the page). Epilepsy and Osteogenesis Imperfecta are
+  multi-panel infographics, stacked into one tall image each.
+- **Quiz links are still not linkable.** The Google Form quizzes are inside a
+  nested embed on the live site with no reachable URL, so the honest
+  "Quiz coming soon" badges stay until the team supplies the form links.
+- Impact stats and the mission copy were unchanged on the live site.

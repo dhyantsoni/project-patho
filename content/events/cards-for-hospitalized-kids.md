@@ -5,8 +5,13 @@ displayDate: "Ongoing program"
 status: "past"
 location: "Poway Farmer's Market & library events"
 summary: "A project focused on spreading love and hope through difficult times. A combined event by Brushstrokes for Biodiversity and Project Patho."
-image: ""
-alt: ""
+image: "cards-for-kids.webp"
+alt: "Children at a library table decorating cards for hospitalized patients"
+gallery:
+  - image: "cards-for-kids-2.webp"
+    alt: "A sign reading 'Make a card for hospitalized patients' beside finished cards"
+  - image: "cards-for-kids-3.webp"
+    alt: "Del Norte students making cards during a club meeting"
 link: "https://brushstrokesforbiodiversity.org/"
 cards_for_kids: true
 ---
