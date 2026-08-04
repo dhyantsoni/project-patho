@@ -73,8 +73,8 @@ const ResourcesPage = (): React.ReactElement => {
           <PosterGallery posters={posters} />
           <Reveal>
             <p className="mt-8 text-center text-sm text-ink-soft">
-              Every poster is created by a Project Patho student. The finished artwork is on its way —
-              for now, each card shows the condition it covers.
+              Every poster is researched, written, and illustrated by a Project Patho student.
+              Select a poster to open it full size.
             </p>
           </Reveal>
         </Container>

@@ -13,11 +13,18 @@ const shapes = [
   "63% 37% 52% 48% / 46% 56% 44% 54%",
 ] as const;
 
+/** Frame proportions — pick the one closest to the photo so faces survive the crop. */
+const ratios = {
+  portrait: "aspect-[4/5]",
+  landscape: "aspect-[4/3]",
+} as const;
+
 type PhotoFrameProps = {
   src: string;
   alt: string;
   className?: string;
   shape?: 0 | 1 | 2;
+  ratio?: keyof typeof ratios;
   priority?: boolean;
   sizes?: string;
 };
@@ -27,21 +34,19 @@ export const PhotoFrame = ({
   alt,
   className,
   shape = 0,
+  ratio = "portrait",
   priority = false,
   sizes = "(max-width: 768px) 90vw, 40vw",
 }: PhotoFrameProps): React.ReactElement => (
   <div
-    className={cn("relative aspect-[4/5] w-full overflow-hidden shadow-[0_18px_50px_-24px_rgba(44,33,23,0.5)]", className)}
+    className={cn(
+      "relative w-full overflow-hidden shadow-[0_18px_50px_-24px_rgba(44,33,23,0.5)]",
+      ratios[ratio],
+      className,
+    )}
     style={{ borderRadius: shapes[shape] }}
   >
-    <Image
-      src={src}
-      alt={alt}
-      fill
-      priority={priority}
-      sizes={sizes}
-      className="object-cover"
-    />
+    <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover" />
     {/* Gentle warm wash to unify photos with the earth palette */}
     <div
       aria-hidden="true"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Calendar, Mic, Users, HeartHandshake } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -5,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Cell } from "@/components/organic/cell";
 import { PhotoFrame } from "@/components/organic/photo-frame";
 import { Reveal } from "@/components/motion/reveal";
+import { PhotoStrip } from "@/components/media/photo-strip";
 import { getStats } from "@/lib/content";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -88,8 +90,8 @@ const HomePage = (): React.ReactElement => {
             </Reveal>
             <Reveal delay={160}>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-                We help elementary and middle schoolers understand rare and misunderstood
-                conditions — to reduce stigma, grow empathy, and spark a lifelong love of science.
+                We help elementary and middle schoolers understand rare and misunderstood conditions
+                — to reduce stigma, grow empathy, and spark a lifelong love of science.
               </p>
             </Reveal>
             <Reveal delay={240}>
@@ -110,6 +112,25 @@ const HomePage = (): React.ReactElement => {
               </p>
             </Reveal>
           </div>
+
+          {/* Real workshop photography, straight after the promise it backs up. */}
+          <Reveal delay={320}>
+            <figure className="relative mx-auto mt-14 max-w-4xl">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] shadow-[0_28px_70px_-40px_rgba(44,33,23,0.7)]">
+                <Image
+                  src="/images/home-workshop-library.webp"
+                  alt="Children gathered around a ProjectPatho volunteer at the 4s Library as she walks them through a first aid scenario on screen"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 92vw, 900px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-center text-sm text-ink-soft">
+                A ProjectPatho workshop at the 4s Ranch Library.
+              </figcaption>
+            </figure>
+          </Reveal>
         </Container>
       </section>
 
@@ -143,7 +164,8 @@ const HomePage = (): React.ReactElement => {
       </section>
 
       {/* ===== About / mission ===== */}
-      <section id="about" className="scroll-mt-24 py-20 sm:py-28">
+      {/* overflow-hidden: the decorative Cell sits past the right edge on narrow screens. */}
+      <section id="about" className="scroll-mt-24 overflow-hidden py-20 sm:py-28">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
@@ -159,10 +181,7 @@ const HomePage = (): React.ReactElement => {
                   We teach medical and biological concepts through posters, workshops, a podcast,
                   and social media — making complex topics accessible, accurate, and genuinely fun.
                 </p>
-                <Link
-                  href="/join"
-                  className={cn(buttonVariants({ variant: "secondary" }), "mt-8")}
-                >
+                <Link href="/join" className={cn(buttonVariants({ variant: "secondary" }), "mt-8")}>
                   <HeartHandshake aria-hidden="true" className="h-5 w-5" />
                   Get involved
                 </Link>
@@ -179,9 +198,10 @@ const HomePage = (): React.ReactElement => {
                   className="absolute -top-8 -right-6 -z-10 h-40 w-40"
                 />
                 <PhotoFrame
-                  src="/images/students-learning.webp"
-                  alt="Elementary school students smiling and listening attentively at their desks"
+                  src="/images/home-team-lineup.webp"
+                  alt="Five ProjectPatho members wearing hand-lettered name tags, standing in front of a wall of children's artwork"
                   shape={0}
+                  ratio="landscape"
                 />
                 <ul className="mt-6 flex flex-wrap justify-center gap-2.5">
                   {[
@@ -202,6 +222,52 @@ const HomePage = (): React.ReactElement => {
               </div>
             </Reveal>
           </div>
+        </Container>
+      </section>
+
+      {/* ===== Out in the community ===== */}
+      <section aria-labelledby="community-heading" className="pb-20">
+        <Container>
+          <Reveal>
+            <h2
+              id="community-heading"
+              className="font-display text-3xl font-semibold text-ink sm:text-4xl"
+            >
+              Out in the community
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
+              Library workshops, care packages for families at Ronald McDonald House Charities, and
+              handmade cards for kids in the hospital.
+            </p>
+          </Reveal>
+          <Reveal delay={140}>
+            <PhotoStrip
+              className="mt-8"
+              columns={3}
+              photos={[
+                {
+                  src: "/images/home-rmhc-team.webp",
+                  alt: "ProjectPatho members sitting with the Ronald McDonald statue outside Ronald McDonald House Charities",
+                },
+                {
+                  src: "/images/home-rmhc-donations.webp",
+                  alt: "Team members holding the treats and care package items they donated to Ronald McDonald House Charities",
+                },
+                {
+                  src: "/images/cards-for-kids.webp",
+                  alt: "Children at a library table decorating cards for hospitalized patients",
+                },
+              ]}
+            />
+          </Reveal>
+          <Reveal delay={200}>
+            <Link href="/events" className={cn(buttonVariants({ variant: "outline" }), "mt-8")}>
+              See all our events
+              <ArrowRight aria-hidden="true" className="h-5 w-5" />
+            </Link>
+          </Reveal>
         </Container>
       </section>
 

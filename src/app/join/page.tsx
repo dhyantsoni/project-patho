@@ -169,9 +169,10 @@ const JoinPage = (): React.ReactElement => {
             <div className="grid items-center gap-8 rounded-[2.5rem] bg-surface p-6 sm:grid-cols-2 sm:p-10">
               <div className="mx-auto w-full max-w-sm sm:max-w-none">
                 <PhotoFrame
-                  src="/images/classroom-workshop.webp"
-                  alt="Young children working together on a colorful art and science activity at a classroom table"
+                  src="/images/event-club-rush.webp"
+                  alt="ProjectPatho members behind their Club Rush table at Del Norte High School, talking with students who want to join"
                   shape={1}
+                  ratio="landscape"
                   sizes="(max-width: 768px) 80vw, 45vw"
                 />
               </div>
@@ -220,7 +221,11 @@ const JoinPage = (): React.ReactElement => {
                       aria-hidden="true"
                       className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     >
-                      <Cell color={way.color} variant={i % 3 === 0 ? 0 : i % 3 === 1 ? 1 : 2} opacity={0.16} />
+                      <Cell
+                        color={way.color}
+                        variant={i % 3 === 0 ? 0 : i % 3 === 1 ? 1 : 2}
+                        opacity={0.16}
+                      />
                     </div>
                     <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-2 text-brand-deep">
                       <Icon aria-hidden="true" className="h-7 w-7" />

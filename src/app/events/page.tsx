@@ -9,6 +9,7 @@ import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import { EventCard } from "@/components/events/event-card";
+import { PhotoStrip } from "@/components/media/photo-strip";
 
 export const metadata = pageMeta({
   title: "Events",
@@ -22,6 +23,9 @@ const EventsPage = (): React.ReactElement => {
   const upcoming = events.filter((e) => e.status === "upcoming" && !e.cardsForKids);
   const past = events.filter((e) => e.status === "past" && !e.cardsForKids);
   const cardsForKids = events.find((e) => e.cardsForKids);
+  // One photo per past event, so the moments band reads as a year in review
+  // rather than eight shots of the same afternoon.
+  const moments = past.flatMap((e) => e.gallery.slice(0, 1)).slice(0, 8);
 
   return (
     <>
@@ -60,11 +64,15 @@ const EventsPage = (): React.ReactElement => {
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
                 We take science off the page and into libraries, classrooms, and community spaces —
                 hands-on workshops where kids build first aid kits, explore the brain, and learn how
-                their bodies work. Here&apos;s where we&apos;ve been, and where you can find us next.
+                their bodies work. Here&apos;s where we&apos;ve been, and where you can find us
+                next.
               </p>
             </Reveal>
             <Reveal delay={240}>
-              <nav aria-label="Jump to a section" className="mt-8 flex flex-wrap justify-center gap-3">
+              <nav
+                aria-label="Jump to a section"
+                className="mt-8 flex flex-wrap justify-center gap-3"
+              >
                 <a
                   href="#upcoming"
                   className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
@@ -136,7 +144,10 @@ const EventsPage = (): React.ReactElement => {
                       <Instagram aria-hidden="true" className="h-5 w-5" />
                       Follow {site.instagramHandle}
                     </a>
-                    <Link href="/join" className={cn(buttonVariants({ variant: "outline", size: "md" }))}>
+                    <Link
+                      href="/join"
+                      className={cn(buttonVariants({ variant: "outline", size: "md" }))}
+                    >
                       Join the team
                     </Link>
                   </div>
@@ -149,11 +160,7 @@ const EventsPage = (): React.ReactElement => {
 
       {/* ===== Cards for Hospitalized Kids feature ===== */}
       {cardsForKids ? (
-        <section
-          id="cards-for-kids"
-          aria-labelledby="cards-heading"
-          className="scroll-mt-24 py-4"
-        >
+        <section id="cards-for-kids" aria-labelledby="cards-heading" className="scroll-mt-24 py-4">
           <Container>
             <Reveal>
               <div className="relative overflow-hidden rounded-[2.5rem] bg-moss-deep px-6 py-14 text-[#F3EAD7] sm:px-12 sm:py-16">
@@ -205,6 +212,24 @@ const EventsPage = (): React.ReactElement => {
                         <p key={para.slice(0, 32)}>{para}</p>
                       ))}
                   </div>
+
+                  {cardsForKids.gallery.length > 0 || cardsForKids.image ? (
+                    <PhotoStrip
+                      className="mt-8"
+                      columns={3}
+                      photos={[
+                        ...(cardsForKids.image
+                          ? [
+                              {
+                                src: cardsForKids.image,
+                                alt: cardsForKids.alt ?? `Photo from ${cardsForKids.title}`,
+                              },
+                            ]
+                          : []),
+                        ...cardsForKids.gallery,
+                      ]}
+                    />
+                  ) : null}
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {cardsForKids.link ? (
@@ -265,6 +290,31 @@ const EventsPage = (): React.ReactElement => {
           </ul>
         </Container>
       </section>
+
+      {/* ===== Moments gallery ===== */}
+      {moments.length > 0 ? (
+        <section aria-labelledby="moments-heading" className="pb-16 sm:pb-20">
+          <Container>
+            <Reveal>
+              <h2
+                id="moments-heading"
+                className="font-display text-3xl font-semibold text-ink sm:text-4xl"
+              >
+                Moments from our workshops
+              </h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
+                Balloon lungs, clay neurons, decorated first aid kits — the things kids actually
+                make and remember.
+              </p>
+            </Reveal>
+            <Reveal delay={140}>
+              <PhotoStrip photos={moments} columns={4} className="mt-8" />
+            </Reveal>
+          </Container>
+        </section>
+      ) : null}
 
       {/* ===== Join CTA band ===== */}
       <section aria-labelledby="events-join-heading" className="pb-16 sm:pb-24">

@@ -16,6 +16,13 @@ export const metadata = pageMeta({
   path: "/team",
 });
 
+/** Interns are credited by name and school; they don't have bios or headshots. */
+const INTERNS = [
+  { name: "Jisha Jain", role: "Media Intern", school: "Canyon Crest Academy" },
+  { name: "Azita Newman", role: "Podcast Intern", school: "Del Norte High School" },
+  { name: "Vedika Gurushankar", role: "Event Intern", school: "Scripps Ranch High School" },
+] as const;
+
 const TeamPage = (): React.ReactElement => {
   const members = getTeam();
 
@@ -70,10 +77,28 @@ const TeamPage = (): React.ReactElement => {
             Team members
           </h2>
           <TeamGrid members={members} />
+        </Container>
+      </section>
+
+      {/* ===== Interns ===== */}
+      <section aria-labelledby="interns-heading" className="pt-12">
+        <Container>
           <Reveal>
-            <p className="mt-8 text-center text-sm text-ink-soft">
-              Headshots are on the way — for now, each member is shown with their initials.
-            </p>
+            <div className="rounded-[2rem] border border-border bg-surface-2 px-6 py-8 sm:px-10">
+              <h2 id="interns-heading" className="font-display text-2xl font-semibold text-ink">
+                Our interns
+              </h2>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+                {INTERNS.map((intern) => (
+                  <li key={intern.name} className="leading-relaxed text-ink-soft">
+                    <span className="font-semibold text-ink">{intern.name}</span>
+                    <span className="block text-sm">
+                      {intern.role} · {intern.school}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </Reveal>
         </Container>
       </section>

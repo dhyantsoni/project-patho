@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, Maximize2 } from "lucide-react";
 import type { Poster } from "@/lib/content";
 import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
@@ -36,60 +36,68 @@ export const PosterCard = ({ poster, index = 0 }: PosterCardProps): React.ReactE
     <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_18px_40px_-20px_rgba(44,33,23,0.35)]">
       {/* Poster artwork when supplied; otherwise a labelled placeholder frame. */}
       {poster.image ? (
-        <div className="relative aspect-[3/4] overflow-hidden bg-surface-2">
+        <a
+          href={poster.image}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open the full ${poster.title} poster`}
+          className="relative block aspect-[3/4] overflow-hidden bg-surface-2 focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-ring"
+        >
           <Image
             src={poster.image}
             alt={poster.alt || `Info poster about ${poster.title}`}
             fill
             sizes="(max-width: 768px) 90vw, 30vw"
-            className="object-cover"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
           {poster.category ? (
             <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-background/85 px-3 py-1 font-display text-xs font-semibold tracking-wide text-brand-deep uppercase">
               {poster.category}
             </span>
           ) : null}
-        </div>
+          <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3.5 py-1.5 text-sm font-semibold text-brand-deep">
+            <Maximize2 aria-hidden="true" className="h-4 w-4" />
+            View full poster
+          </span>
+        </a>
       ) : (
         <div className="relative aspect-[3/4] overflow-hidden bg-surface-2">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <Cell
-            color={color}
-            variant={variant}
-            animate="breathe"
-            opacity={0.9}
-            className="absolute -top-10 -right-8 h-56 w-56"
-          />
-          <Cell
-            color="marigold-soft"
-            variant={((variant + 1) % 3) as 0 | 1 | 2}
-            animate="drift-slow"
-            opacity={0.5}
-            className="absolute -bottom-14 -left-10 h-52 w-52"
-          />
-        </div>
+            <Cell
+              color={color}
+              variant={variant}
+              animate="breathe"
+              opacity={0.9}
+              className="absolute -top-10 -right-8 h-56 w-56"
+            />
+            <Cell
+              color="marigold-soft"
+              variant={((variant + 1) % 3) as 0 | 1 | 2}
+              animate="drift-slow"
+              opacity={0.5}
+              className="absolute -bottom-14 -left-10 h-52 w-52"
+            />
+          </div>
 
-        <div className="relative flex h-full flex-col justify-between p-6">
-          {poster.category ? (
-            <span className="inline-flex w-fit items-center rounded-full bg-background/85 px-3 py-1 font-display text-xs font-semibold tracking-wide text-brand-deep uppercase">
-              {poster.category}
+          <div className="relative flex h-full flex-col justify-between p-6">
+            {poster.category ? (
+              <span className="inline-flex w-fit items-center rounded-full bg-background/85 px-3 py-1 font-display text-xs font-semibold tracking-wide text-brand-deep uppercase">
+                {poster.category}
+              </span>
+            ) : (
+              <span aria-hidden="true" />
+            )}
+
+            <span className="inline-flex w-fit items-center rounded-full bg-background/70 px-3 py-1 text-xs font-medium text-ink-soft">
+              Artwork on its way
             </span>
-          ) : (
-            <span aria-hidden="true" />
-          )}
-
-          <span className="inline-flex w-fit items-center rounded-full bg-background/70 px-3 py-1 text-xs font-medium text-ink-soft">
-            Artwork on its way
-          </span>
-        </div>
+          </div>
         </div>
       )}
 
       {/* Card body */}
       <div className="flex flex-1 flex-col p-7">
-        <h3 className="font-display text-xl leading-snug font-semibold text-ink">
-          {poster.title}
-        </h3>
+        <h3 className="font-display text-xl leading-snug font-semibold text-ink">{poster.title}</h3>
 
         <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{poster.summary}</p>
 

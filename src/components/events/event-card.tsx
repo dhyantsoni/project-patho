@@ -67,7 +67,7 @@ export const EventCard = ({ event, index = 0 }: EventCardProps): React.ReactElem
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-6 w-fit")}
         >
-          {`More about ${event.title}`}
+          {event.linkLabel ?? `More about ${event.title}`}
           <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
         </a>
       ) : null}

@@ -111,6 +111,24 @@ export const getEpisodes = (): Episode[] =>
     }))
     .sort((a, b) => b.episode - a.episode);
 
+/** One extra photo in an item's gallery — resolved the same way as `image`. */
+export type Photo = { src: string; alt: string };
+
+/**
+ * Reads a `gallery:` list of `{ image, alt }` entries from frontmatter, keeping
+ * only the photos that actually exist in public/images. An item with no gallery
+ * (or with filenames not dropped in yet) simply renders without one.
+ */
+const resolveGallery = (raw: unknown, fallbackAlt: string): Photo[] => {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((entry) => {
+    if (typeof entry !== "object" || entry === null) return [];
+    const { image, alt } = entry as { image?: unknown; alt?: unknown };
+    const src = resolveImage(image ? String(image) : undefined);
+    return src ? [{ src, alt: alt ? String(alt) : fallbackAlt }] : [];
+  });
+};
+
 export type EventItem = {
   slug: string;
   title: string;
@@ -121,7 +139,9 @@ export type EventItem = {
   summary: string;
   image?: string;
   alt?: string;
+  gallery: Photo[];
   link?: string;
+  linkLabel?: string;
   cardsForKids: boolean;
   body: string;
 };
@@ -138,7 +158,9 @@ export const getEvents = (): EventItem[] =>
       summary: String(e.data.summary ?? ""),
       image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
+      gallery: resolveGallery(e.data.gallery, `Photo from ${String(e.data.title ?? "the event")}`),
       link: e.data.link ? String(e.data.link) : undefined,
+      linkLabel: e.data.linkLabel ? String(e.data.linkLabel) : undefined,
       cardsForKids: Boolean(e.data.cards_for_kids ?? false),
       body: e.body,
     }))
