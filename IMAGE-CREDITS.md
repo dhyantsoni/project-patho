@@ -14,8 +14,8 @@ by the team (August 2026) from the pages of the previous Google Sites build.
 | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------ |
 | `home-workshop-library.webp`, `home-team-lineup.webp`, `home-rmhc-team.webp`, `home-rmhc-donations.webp` | Library workshop, the officer team, and the Ronald McDonald House Charities donation day | Home — hero, mission, community band |
 | `team-*.webp` (10 files)                                                                                 | Officer headshots, one per member                                                        | Meet the Team                        |
-| `event-*.webp` (23 files)                                                                                | Workshops, Club Rush, care packages, and the Skeletal System Event flyer                 | Events, Join                         |
-| `cards-for-kids*.webp` (3 files)                                                                         | Cards for Hospitalized Kids sessions                                                     | Events — Cards for Hospitalized Kids |
+| `event-*.webp` (78 files)                                                                                | Every photo from every event, in the same order as the team's own past-events page, plus the Skeletal System Event flyer | Events, Join, Home |
+| `cards-for-kids-*.webp` (4 files)                                                                        | Cards for Hospitalized Kids sessions                                                     | Events — Cards for Hospitalized Kids |
 | `poster-*.webp` (6 files)                                                                                | Info posters, credited to their student author in `content/posters/*.md`                 | Resources                            |
 
 Poster authors, as credited on each poster: Bipolar Disorder — Ridah Mannat;

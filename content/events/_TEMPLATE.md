@@ -10,13 +10,12 @@ status: "upcoming"
 location: "Where it's happening (or 'Online')"
 # One or two sentences shown on the events page.
 summary: "What the event is and who it's for."
-# Optional photo: put the file in public/images/ and name it here.
-image: "event-blood-drive.webp"
+# The event's first photo: put the file in public/images/ and name it here.
+image: "event-blood-drive-01.webp"
 alt: "Short description of the event photo"
-# Optional extra photos. The first one also appears in the "Moments from our
-# workshops" gallery at the bottom of the Events page. Delete if you have none.
+# The rest of the album, in the order you want it shown. Delete if you have none.
 gallery:
-  - image: "event-blood-drive-2.webp"
+  - image: "event-blood-drive-02.webp"
     alt: "Short description of the second photo"
 # Optional sign-up / info link.
 link: ""

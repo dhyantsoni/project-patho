@@ -9,6 +9,7 @@ import { Cell } from "@/components/organic/cell";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 import { EventCard } from "@/components/events/event-card";
+import { EventFeature } from "@/components/events/event-feature";
 import { PhotoStrip } from "@/components/media/photo-strip";
 
 export const metadata = pageMeta({
@@ -23,9 +24,6 @@ const EventsPage = (): React.ReactElement => {
   const upcoming = events.filter((e) => e.status === "upcoming" && !e.cardsForKids);
   const past = events.filter((e) => e.status === "past" && !e.cardsForKids);
   const cardsForKids = events.find((e) => e.cardsForKids);
-  // One photo per past event, so the moments band reads as a year in review
-  // rather than eight shots of the same afternoon.
-  const moments = past.flatMap((e) => e.gallery.slice(0, 1)).slice(0, 8);
 
   return (
     <>
@@ -281,40 +279,17 @@ const EventsPage = (): React.ReactElement => {
             </p>
           </Reveal>
 
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Every event keeps its whole album, newest first — same as the
+              team's own past-events page. */}
+          <ul className="mt-12 space-y-16">
             {past.map((event, i) => (
-              <Reveal as="li" key={event.slug} delay={i * 60} className="h-full">
-                <EventCard event={event} index={i} />
+              <Reveal as="li" key={event.slug} delay={40}>
+                <EventFeature event={event} index={i} />
               </Reveal>
             ))}
           </ul>
         </Container>
       </section>
-
-      {/* ===== Moments gallery ===== */}
-      {moments.length > 0 ? (
-        <section aria-labelledby="moments-heading" className="pb-16 sm:pb-20">
-          <Container>
-            <Reveal>
-              <h2
-                id="moments-heading"
-                className="font-display text-3xl font-semibold text-ink sm:text-4xl"
-              >
-                Moments from our workshops
-              </h2>
-            </Reveal>
-            <Reveal delay={80}>
-              <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
-                Balloon lungs, clay neurons, decorated first aid kits — the things kids actually
-                make and remember.
-              </p>
-            </Reveal>
-            <Reveal delay={140}>
-              <PhotoStrip photos={moments} columns={4} className="mt-8" />
-            </Reveal>
-          </Container>
-        </section>
-      ) : null}
 
       {/* ===== Join CTA band ===== */}
       <section aria-labelledby="events-join-heading" className="pb-16 sm:pb-24">

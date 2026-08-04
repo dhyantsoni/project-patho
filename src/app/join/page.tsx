@@ -169,7 +169,7 @@ const JoinPage = (): React.ReactElement => {
             <div className="grid items-center gap-8 rounded-[2.5rem] bg-surface p-6 sm:grid-cols-2 sm:p-10">
               <div className="mx-auto w-full max-w-sm sm:max-w-none">
                 <PhotoFrame
-                  src="/images/event-club-rush.webp"
+                  src="/images/event-club-rush-02.webp"
                   alt="ProjectPatho members behind their Club Rush table at Del Norte High School, talking with students who want to join"
                   shape={1}
                   ratio="landscape"

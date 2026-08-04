@@ -32,9 +32,9 @@ file in that folder, rename it, and fill it in.**
 - **Event →** copy `content/events/_TEMPLATE.md` to
   `content/events/2026-08-15-blood-drive.md` and fill in the fields. Set
   `status: upcoming` or `status: past` — the site sorts it into the right list.
-  `image:` is the photo on the event card; the optional `gallery:` list holds
-  extra photos, and the first of them also appears in the "Moments from our
-  workshops" gallery further down the Events page.
+  `image:` is the event's first photo; add the rest to the optional `gallery:`
+  list. Past events show their whole album on the Events page, in the order you
+  list them, and the first photo is the one used elsewhere on the site.
 - **Info poster →** copy `content/posters/_TEMPLATE.md` to
   `content/posters/asthma.md` and fill it in.
 
