@@ -27,6 +27,24 @@ const resolveImage = (file?: string): string | undefined => {
   return fs.existsSync(path.join(PUBLIC_IMAGES_DIR, clean)) ? `/images/${clean}` : undefined;
 };
 
+/**
+ * Resolves a content `link:`/`quizUrl:`/`pdf:` value to a usable href, keeping
+ * only schemes that are safe to put in an anchor. Anything else — most
+ * pointedly `javascript:` — is dropped, so a link pasted into a content file
+ * can never become script. Site-relative paths ("/handout.pdf") pass through.
+ */
+const resolveUrl = (raw?: string): string | undefined => {
+  const value = raw?.trim();
+  if (!value) return undefined;
+  if (value.startsWith("/") && !value.startsWith("//")) return value;
+  try {
+    const { protocol } = new URL(value);
+    return ["http:", "https:", "mailto:"].includes(protocol) ? value : undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 type Frontmatter = Record<string, unknown>;
 
 export type ContentEntry = {
@@ -105,7 +123,7 @@ export const getEpisodes = (): Episode[] =>
       summary: String(e.data.summary ?? ""),
       image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
-      link: String(e.data.link ?? ""),
+      link: resolveUrl(e.data.link ? String(e.data.link) : undefined) ?? "",
       embed: e.data.embed ? String(e.data.embed) : undefined,
       body: e.body,
     }))
@@ -159,7 +177,7 @@ export const getEvents = (): EventItem[] =>
       image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
       gallery: resolveGallery(e.data.gallery, `Photo from ${String(e.data.title ?? "the event")}`),
-      link: e.data.link ? String(e.data.link) : undefined,
+      link: resolveUrl(e.data.link ? String(e.data.link) : undefined),
       linkLabel: e.data.linkLabel ? String(e.data.linkLabel) : undefined,
       cardsForKids: Boolean(e.data.cards_for_kids ?? false),
       body: e.body,
@@ -190,11 +208,11 @@ export const getPosters = (): Poster[] =>
       summary: String(e.data.summary ?? ""),
       image: resolveImage(e.data.image ? String(e.data.image) : undefined),
       alt: e.data.alt ? String(e.data.alt) : undefined,
-      pdf: e.data.pdf ? String(e.data.pdf) : undefined,
+      pdf: resolveUrl(e.data.pdf ? String(e.data.pdf) : undefined),
       credit: e.data.credit ? String(e.data.credit) : undefined,
       category: e.data.category ? String(e.data.category) : undefined,
       quiz: e.data.quiz ? String(e.data.quiz) : undefined,
-      quizUrl: e.data.quizUrl ? String(e.data.quizUrl) : undefined,
+      quizUrl: resolveUrl(e.data.quizUrl ? String(e.data.quizUrl) : undefined),
       order: Number(e.data.order ?? 99),
       body: e.body,
     }))
