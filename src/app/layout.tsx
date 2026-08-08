@@ -22,7 +22,7 @@ const epilogue = Epilogue({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Diseases, explained for kids`,
+    default: `${site.name} — Student-run nonprofit organization`,
     template: `%s · ${site.name}`,
   },
   description: site.mission,
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — Diseases, explained for kids`,
+    title: `${site.name} — Student-run nonprofit organization`,
     description: site.mission,
     url: site.url,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name}` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Diseases, explained for kids`,
+    title: `${site.name} — Student-run nonprofit organization`,
     description: site.mission,
     images: ["/og.png"],
   },

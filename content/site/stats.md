@@ -7,7 +7,7 @@ stats:
   - label: "Instagram Followers"
     value: "500+"
   - label: "Students Reached"
-    value: "100+"
+    value: "300+"
   - label: "Volunteers"
     value: "30+"
   - label: "Care Packages Donated"
@@ -15,5 +15,5 @@ stats:
   - label: "Events Hosted"
     value: "10+"
   - label: "Podcast Episodes Published"
-    value: "10"
+    value: "12"
 ---

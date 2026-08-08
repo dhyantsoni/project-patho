@@ -18,7 +18,7 @@ const pathways = [
   {
     href: "/podcast",
     label: "PathoTalks Podcast",
-    desc: "Ten conversations with real doctors and scientists about the work they do and why it matters.",
+    desc: "Conversations with real doctors and scientists about the work they do and why it matters.",
   },
   {
     href: "/events",
@@ -47,8 +47,8 @@ const HomePage = (): React.ReactElement => {
       <section className="py-16 sm:py-24">
         <Container>
           <p className="eyebrow">{site.tagline}</p>
-          <h1 className="mt-5 max-w-4xl font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl md:text-7xl">
-            Diseases, <span className="text-brand">explained for kids.</span>
+          <h1 className="mt-5 font-display text-6xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
+            Project<span className="text-brand">Patho</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
             We help elementary and middle schoolers understand rare and misunderstood conditions —

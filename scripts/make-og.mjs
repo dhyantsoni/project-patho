@@ -12,10 +12,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     <circle cx="0" cy="0" r="58" fill="none" stroke="#E6A4B4" stroke-width="16"/>
     <circle cx="0" cy="0" r="20" fill="#8C1C33"/>
   </g>
-  <text x="88" y="104" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="3.4" fill="#8C1C33">PROJECTPATHO</text>
+  <text x="88" y="104" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="3.4" fill="#8C1C33">STUDENT-RUN NONPROFIT ORGANIZATION</text>
   <rect x="88" y="132" width="860" height="1" fill="#ECD6D2"/>
-  <text x="88" y="300" font-family="Georgia, serif" font-size="88" font-weight="700" fill="#2B1418">Diseases,</text>
-  <text x="88" y="396" font-family="Georgia, serif" font-size="88" font-weight="700" fill="#8C1C33">explained for kids.</text>
+  <text x="88" y="330" font-family="Georgia, serif" font-size="118" font-weight="700"><tspan fill="#2B1418">Project</tspan><tspan fill="#8C1C33">Patho</tspan></text>
   <text x="88" y="470" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#6B4148">A student-led nonprofit teaching kids about diseases —</text>
   <text x="88" y="510" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#6B4148">to reduce stigma, grow empathy, and spark science.</text>
 </svg>`;

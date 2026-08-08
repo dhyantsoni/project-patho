@@ -97,8 +97,7 @@ const PodcastPage = (): React.ReactElement => {
             All episodes
           </h2>
           <p className="mt-3 max-w-2xl text-ink-soft">
-            Ten conversations and counting. Pick a specialty that sparks your curiosity and press
-            play.
+            Pick a specialty that sparks your curiosity and press play.
           </p>
           <div className="mt-10">
             <EpisodeList episodes={episodes} />
