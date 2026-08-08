@@ -14,8 +14,10 @@ credit: "Team member name"
 # Category used by the filter on the Resources page
 # (e.g. Mental Health, Genetic, Neurological, Blood & Genetic).
 category: "Genetic"
-# Optional quiz note shown as a badge (e.g. "Quiz available" / "Quiz coming soon").
-quiz: ""
+# Optional quiz. `quiz` is the wording shown on the card; with a `quizUrl` it
+# becomes a link, without one it's just a note (e.g. "Quiz coming soon").
+quiz: "Take the quiz"
+quizUrl: "https://docs.google.com/forms/d/e/..."
 # For filtering/sorting on the Resources page.
 order: 10
 ---

@@ -6,7 +6,8 @@ alt: "Info poster about bipolar disorder: what causes it, who can have it, what 
 pdf: ""
 credit: "Ridah Mannat"
 category: "Mental Health"
-quiz: "Quiz coming soon"
+quiz: "Take the quiz"
+quizUrl: "https://www.projectpatho.org/resources/info-posters/bipolar-disorder"
 order: 1
 ---
 

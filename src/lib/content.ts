@@ -176,6 +176,8 @@ export type Poster = {
   credit?: string;
   category?: string;
   quiz?: string;
+  /** Where the quiz lives. With one, `quiz` becomes the link's label. */
+  quizUrl?: string;
   order: number;
   body: string;
 };
@@ -192,6 +194,7 @@ export const getPosters = (): Poster[] =>
       credit: e.data.credit ? String(e.data.credit) : undefined,
       category: e.data.category ? String(e.data.category) : undefined,
       quiz: e.data.quiz ? String(e.data.quiz) : undefined,
+      quizUrl: e.data.quizUrl ? String(e.data.quizUrl) : undefined,
       order: Number(e.data.order ?? 99),
       body: e.body,
     }))

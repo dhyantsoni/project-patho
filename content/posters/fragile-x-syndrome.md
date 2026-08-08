@@ -6,7 +6,8 @@ alt: "Info poster about Fragile X syndrome: what causes it, symptoms, who is aff
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"
-quiz: ""
+quiz: "Take the quiz"
+quizUrl: "https://www.projectpatho.org/resources/info-posters/fragile-x-syndrome"
 order: 4
 ---
 

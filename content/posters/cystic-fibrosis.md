@@ -6,7 +6,8 @@ alt: "Info poster about cystic fibrosis: cause, effects, treatments and medicati
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"
-quiz: "Quiz coming soon"
+quiz: "Take the quiz"
+quizUrl: "https://www.projectpatho.org/resources/info-posters/cystic-fibrosis"
 order: 2
 ---
 

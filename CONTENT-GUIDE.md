@@ -36,7 +36,9 @@ file in that folder, rename it, and fill it in.**
   list. Past events show their whole album on the Events page, in the order you
   list them, and the first photo is the one used elsewhere on the site.
 - **Info poster →** copy `content/posters/_TEMPLATE.md` to
-  `content/posters/asthma.md` and fill it in.
+  `content/posters/asthma.md` and fill it in. To attach a quiz, put its link in
+  `quizUrl:` and the button wording in `quiz:`. Leave `quizUrl:` empty and
+  `quiz:` becomes a plain note instead of a link.
 
 The new item appears automatically in the right place, newest first.
 

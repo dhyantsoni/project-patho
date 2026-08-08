@@ -6,7 +6,8 @@ alt: "Info poster about epilepsy: what causes it, what seizures look like, what 
 pdf: ""
 credit: "Jolina Jian"
 category: "Neurological"
-quiz: "Quiz coming soon"
+quiz: "Take the quiz"
+quizUrl: "https://www.projectpatho.org/resources/info-posters/epilepsy"
 order: 3
 ---
 

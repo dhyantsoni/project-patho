@@ -6,7 +6,8 @@ alt: "Info poster about osteogenesis imperfecta: what causes it, who can have it
 pdf: ""
 credit: "Jolina Jian"
 category: "Genetic"
-quiz: "Quiz coming soon"
+quiz: "Take the quiz"
+quizUrl: "https://www.projectpatho.org/resources/info-posters/osteogenesis-imperfecta"
 order: 5
 ---
 
