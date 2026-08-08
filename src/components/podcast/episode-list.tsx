@@ -1,125 +1,74 @@
 import Image from "next/image";
-import { Mic } from "lucide-react";
 import type { Episode } from "@/lib/content";
-import { buttonVariants } from "@/components/ui/button";
-import { Cell } from "@/components/organic/cell";
-import { Reveal } from "@/components/motion/reveal";
-import { cn } from "@/lib/utils";
 
 /**
- * PathoTalks episode list. Each episode is a card with a generated "blob" art
- * placeholder (episode art files don't exist yet), metadata, and a link out to
- * Spotify. Placeholder colors rotate across a warm, organic palette.
+ * PathoTalks episodes as a ruled list. The episode number is set large in the
+ * display face and doubles as the artwork slot — cover images are used when a
+ * content file supplies one.
  */
 
-const CELL_COLORS = ["brand", "moss", "marigold", "clay", "marigold-soft"] as const;
-const CELL_VARIANTS = [0, 1, 2] as const;
+export const EpisodeCard = ({ episode }: { episode: Episode }): React.ReactElement => (
+  <li className="border-t border-border">
+    <article className="flex flex-col gap-5 py-8 sm:flex-row sm:gap-8">
+      {episode.image ? (
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden bg-pink-soft">
+          <Image
+            src={episode.image}
+            alt={episode.alt || `Cover art for Episode ${episode.episode}: ${episode.title}`}
+            fill
+            sizes="96px"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <span
+          aria-hidden="true"
+          className="flex h-24 w-24 shrink-0 items-center justify-center bg-pink-soft font-display text-4xl font-semibold text-brand"
+        >
+          {episode.episode}
+        </span>
+      )}
 
-type EpisodeCardProps = {
-  episode: Episode;
-  index: number;
-};
+      <div className="flex flex-1 flex-col">
+        <p className="eyebrow">Episode {episode.episode}</p>
+        <h3 className="mt-2 font-display text-xl leading-snug font-semibold text-ink sm:text-2xl">
+          {episode.title}
+        </h3>
 
-export const EpisodeCard = ({ episode, index }: EpisodeCardProps): React.ReactElement => {
-  const color = CELL_COLORS[index % CELL_COLORS.length];
-  const variant = CELL_VARIANTS[index % CELL_VARIANTS.length];
-  const numberOnDark = color === "marigold-soft";
-
-  return (
-    <li className="h-full list-none">
-      <Reveal
-        as="article"
-        delay={(index % 3) * 80}
-        className="group flex h-full flex-col gap-6 rounded-[2rem] border border-border bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(44,33,23,0.35)] focus-within:-translate-y-1 sm:flex-row sm:items-start sm:p-7"
-      >
-        {/* Episode art when supplied; otherwise organic blob + episode number. */}
-        {episode.image ? (
-          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl shadow-sm sm:h-32 sm:w-32">
-            <Image
-              src={episode.image}
-              alt={episode.alt || `Cover art for Episode ${episode.episode}: ${episode.title}`}
-              fill
-              sizes="128px"
-              className="object-cover"
-            />
-          </div>
-        ) : (
-          <div className="relative flex h-28 w-28 shrink-0 items-center justify-center sm:h-32 sm:w-32">
-            <Cell
-              color={color}
-              variant={variant}
-              animate="breathe"
-              className="absolute inset-0 h-full w-full"
-            />
-            <span
-              className={cn(
-                "relative font-display text-4xl font-semibold sm:text-5xl",
-                numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
-              )}
-            >
-              {episode.episode}
-            </span>
-            <Mic
-              aria-hidden="true"
-              className={cn(
-                "absolute right-2 bottom-2 h-5 w-5",
-                numberOnDark ? "text-moss-deep" : "text-[#F3EAD7]",
-              )}
-            />
-          </div>
+        {(episode.guest || episode.specialty) && (
+          <p className="mt-2 text-ink">
+            <span className="font-semibold">{episode.guest}</span>
+            {episode.guest && episode.specialty ? " — " : ""}
+            {episode.specialty ? <span className="text-ink-soft">{episode.specialty}</span> : null}
+          </p>
         )}
 
-        {/* Body */}
-        <div className="flex flex-1 flex-col">
-          <span className="font-display text-xs font-semibold tracking-wide text-brand-deep uppercase">
-            Episode {episode.episode}
-          </span>
-          <h3 className="mt-2 font-display text-xl leading-snug font-semibold text-ink sm:text-2xl">
-            {episode.title}
-          </h3>
+        {episode.interviewer && (
+          <p className="mt-1 text-sm text-ink-soft">Hosted by {episode.interviewer}</p>
+        )}
 
-          {(episode.guest || episode.specialty) && (
-            <p className="mt-2 text-base font-medium text-moss-deep">
-              {episode.guest}
-              {episode.guest && episode.specialty ? " — " : ""}
-              {episode.specialty && (
-                <span className="font-normal text-ink-soft">{episode.specialty}</span>
-              )}
-            </p>
-          )}
+        {episode.summary && <p className="mt-3 leading-relaxed text-ink-soft">{episode.summary}</p>}
 
-          {episode.interviewer && (
-            <p className="mt-1 text-sm text-ink-soft">Hosted by {episode.interviewer}</p>
-          )}
-
-          {episode.summary && (
-            <p className="mt-3 text-base leading-relaxed text-ink-soft">{episode.summary}</p>
-          )}
-
-          {episode.link && (
-            <div className="mt-auto pt-5">
-              <a
-                href={episode.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Listen to Episode ${episode.episode}, ${episode.title}, on Spotify (opens in a new tab)`}
-                className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}
-              >
-                <Mic aria-hidden="true" className="h-4 w-4" />
-                Listen on Spotify
-              </a>
-            </div>
-          )}
-        </div>
-      </Reveal>
-    </li>
-  );
-};
+        {episode.link && (
+          <a
+            href={episode.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Listen to Episode ${episode.episode}, ${episode.title}, on Spotify (opens in a new tab)`}
+            className="mt-4 w-fit font-semibold text-brand underline-offset-4 hover:underline"
+          >
+            Listen on Spotify ↗
+          </a>
+        )}
+      </div>
+    </article>
+  </li>
+);
 
 export const EpisodeList = ({ episodes }: { episodes: Episode[] }): React.ReactElement => (
-  <ul className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-    {episodes.map((episode, index) => (
-      <EpisodeCard key={episode.slug} episode={episode} index={index} />
+  <ul className="grid gap-x-12 lg:grid-cols-2">
+    {episodes.map((episode) => (
+      <EpisodeCard key={episode.slug} episode={episode} />
     ))}
   </ul>
 );

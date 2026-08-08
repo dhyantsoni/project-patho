@@ -23,8 +23,10 @@ Cystic Fibrosis and Fragile X Syndrome — Aditi Jain; Epilepsy and Osteogenesis
 Imperfecta — Jolina Jian; Sickle Cell Anemia — Aarini Parikh.
 
 Changes made: photos were resized and converted to WebP; headshots were cropped
-square. The multi-panel Epilepsy and Osteogenesis Imperfecta infographics were
-stacked into one tall image each so the whole poster reads in one scroll.
+square, and two that arrived padded onto a white canvas were trimmed and
+re-cropped so the face fills the frame. The multi-panel Epilepsy and
+Osteogenesis Imperfecta infographics were stacked into one tall image each so
+the whole poster reads in one scroll.
 
 **Photo consent:** these images were already published on ProjectPatho's public
 site. Some show children at library events — if a family asks for a photo to be
