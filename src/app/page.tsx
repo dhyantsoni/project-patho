@@ -210,7 +210,7 @@ const HomePage = (): React.ReactElement => {
               },
               {
                 src: "/images/home-team-lineup.webp",
-                alt: "Five ProjectPatho members wearing hand-lettered name tags, standing in front of a wall of children's artwork",
+                alt: "Eight ProjectPatho members at the 4s Ranch Library for the Cardiovascular System event, standing around the presentation screen and workshop table",
               },
             ]}
           />
