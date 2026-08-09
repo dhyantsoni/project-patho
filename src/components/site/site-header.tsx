@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -38,9 +39,13 @@ export const SiteHeader = (): React.ReactElement => {
       >
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="flex items-center gap-2.5 font-display text-xl font-semibold tracking-tight text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
-          Project<span className="text-brand">Patho</span>
+          {/* Decorative: the wordmark beside it already names the link. */}
+          <Image src="/images/logo.png" alt="" width={34} height={34} priority className="h-8 w-8" />
+          <span>
+            Project<span className="text-brand">Patho</span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">

@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { Photo } from "@/components/media/photo";
 import { PhotoStrip } from "@/components/media/photo-strip";
-import { getEvents, getStats } from "@/lib/content";
+import { getEvents, getPhoto, getStats } from "@/lib/content";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +36,17 @@ const missionPoints = ["Reduce stigma", "Inspire empathy", "Spark curiosity", "T
 
 const HomePage = (): React.ReactElement => {
   const stats = getStats();
+  // Measured from the files so the wide RMHC group shot keeps everyone in frame.
+  const communityPhotos = [
+    getPhoto(
+      "home-rmhc-donations.webp",
+      "Six ProjectPatho members holding the treats and care package items they donated to Ronald McDonald House Charities",
+    ),
+    getPhoto(
+      "home-team-lineup.webp",
+      "Eight ProjectPatho members at the 4s Ranch Library for the Cardiovascular System event, standing around the presentation screen and workshop table",
+    ),
+  ].filter((p) => p !== undefined);
   const events = getEvents().filter((e) => !e.cardsForKids && e.image);
   // The event-flyer slot: the next event when one is scheduled, otherwise the
   // most recent one — so the poster the team made always has a home here.
@@ -47,9 +58,20 @@ const HomePage = (): React.ReactElement => {
       <section className="py-16 sm:py-24">
         <Container>
           <p className="eyebrow">{site.tagline}</p>
-          <h1 className="mt-5 font-display text-6xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
-            Project<span className="text-brand">Patho</span>
-          </h1>
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <h1 className="font-display text-6xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
+              Project<span className="text-brand">Patho</span>
+            </h1>
+            {/* Decorative: the heading beside it already says the name. */}
+            <Image
+              src="/images/logo.png"
+              alt=""
+              width={112}
+              height={112}
+              priority
+              className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24"
+            />
+          </div>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
             We help elementary and middle schoolers understand rare and misunderstood conditions —
             to reduce stigma, grow empathy, and spark a lifelong love of science.
@@ -201,19 +223,7 @@ const HomePage = (): React.ReactElement => {
           <h2 id="community-heading" className="sr-only">
             ProjectPatho out in the community
           </h2>
-          <PhotoStrip
-            columns={2}
-            photos={[
-              {
-                src: "/images/home-rmhc-donations.webp",
-                alt: "Team members holding the treats and care package items they donated to Ronald McDonald House Charities",
-              },
-              {
-                src: "/images/home-team-lineup.webp",
-                alt: "Eight ProjectPatho members at the 4s Ranch Library for the Cardiovascular System event, standing around the presentation screen and workshop table",
-              },
-            ]}
-          />
+          <PhotoStrip columns={2} photos={communityPhotos} />
         </Container>
       </section>
 

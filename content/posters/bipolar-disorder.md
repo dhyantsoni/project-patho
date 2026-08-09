@@ -6,8 +6,25 @@ alt: "Info poster about bipolar disorder: what causes it, who can have it, what 
 pdf: ""
 credit: "Ridah Mannat"
 category: "Mental Health"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/bipolar-disorder"
+quiz:
+  - question: "If someone you know has bipolar disorder, what is a good way to be a good friend?"
+    options:
+      - "Be patient and supportive, and listen when they want to talk"
+      - "Tell them to stop being sad or happy"
+      - "Ignore how they feel"
+    answer: 0
+  - question: "What can help someone with bipolar disorder stay healthy and feel better?"
+    options:
+      - "Talking to a therapist, taking medicine, and getting enough rest"
+      - "Playing video games all day"
+      - "Eating only chocolate"
+    answer: 0
+  - question: "When someone has bipolar disorder, what might they feel sometimes?"
+    options:
+      - "Always happy and never sad"
+      - "Very happy and full of energy, or very sad and tired"
+      - "Always calm and relaxed"
+    answer: 1
 order: 1
 ---
 

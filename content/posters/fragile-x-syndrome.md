@@ -6,8 +6,28 @@ alt: "Info poster about Fragile X syndrome: what causes it, symptoms, who is aff
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/fragile-x-syndrome"
+quiz:
+  - question: "Who does this disorder affect?"
+    options:
+      - "Only males"
+      - "Only females"
+      - "Both genders, but it severely affects more males than females"
+      - "Both genders, but it severely affects more females than males"
+    answer: 2
+  - question: "What is a common direct symptom of this disease?"
+    options:
+      - "Speech and motor skill issues"
+      - "Heavy breathing"
+      - "Coughing"
+      - "Diarrhea"
+    answer: 0
+  - question: "What can you do to support people with Fragile X Syndrome?"
+    options:
+      - "Prescribe antibiotics"
+      - "Give them a cure"
+      - "Offer therapy and support groups"
+      - "Refer them to a clinic for treatment"
+    answer: 2
 order: 4
 ---
 

@@ -10,16 +10,15 @@ import type { Episode } from "@/lib/content";
 export const EpisodeCard = ({ episode }: { episode: Episode }): React.ReactElement => (
   <li className="border-t border-border">
     <article className="flex flex-col gap-5 py-8 sm:flex-row sm:gap-8">
-      {episode.image ? (
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden bg-pink-soft">
-          <Image
-            src={episode.image}
-            alt={episode.alt || `Cover art for Episode ${episode.episode}: ${episode.title}`}
-            fill
-            sizes="96px"
-            className="object-cover"
-          />
-        </div>
+      {episode.cover ? (
+        <Image
+          src={episode.cover.src}
+          alt={episode.cover.alt}
+          width={episode.cover.width ?? 800}
+          height={episode.cover.height ?? 1000}
+          sizes="144px"
+          className="h-auto w-28 shrink-0 bg-pink-soft sm:w-36"
+        />
       ) : (
         <span
           aria-hidden="true"

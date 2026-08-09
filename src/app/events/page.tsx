@@ -112,23 +112,7 @@ const EventsPage = (): React.ReactElement => {
                 ))}
             </div>
 
-            {cardsForKids.image || cardsForKids.gallery.length > 0 ? (
-              <PhotoStrip
-                className="mt-10"
-                columns={4}
-                photos={[
-                  ...(cardsForKids.image
-                    ? [
-                        {
-                          src: cardsForKids.image,
-                          alt: cardsForKids.alt ?? `Photo from ${cardsForKids.title}`,
-                        },
-                      ]
-                    : []),
-                  ...cardsForKids.gallery,
-                ]}
-              />
-            ) : null}
+            <PhotoStrip className="mt-10" columns={4} photos={cardsForKids.photos} />
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
               {cardsForKids.link ? (

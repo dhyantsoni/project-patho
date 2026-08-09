@@ -19,18 +19,18 @@ const initialsOf = (name: string): string =>
 export const TeamCard = ({ member }: { member: TeamMember }): React.ReactElement => (
   <article className="flex h-full flex-col">
     {member.image ? (
-      <div className="relative aspect-square w-full overflow-hidden bg-pink-soft">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full bg-pink-soft">
         <Image
           src={member.image}
           alt={member.alt || `Headshot of ${member.name}`}
           fill
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+          sizes="112px"
           className="object-cover"
         />
       </div>
     ) : (
-      <div className="flex aspect-square w-full items-center justify-center bg-pink-soft">
-        <span aria-hidden="true" className="font-display text-5xl font-semibold text-brand">
+      <div className="flex h-28 w-28 items-center justify-center rounded-full bg-pink-soft">
+        <span aria-hidden="true" className="font-display text-3xl font-semibold text-brand">
           {initialsOf(member.name) || "PP"}
         </span>
       </div>

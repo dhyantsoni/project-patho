@@ -13,11 +13,6 @@ type EventFeatureProps = {
 };
 
 export const EventFeature = ({ event }: EventFeatureProps): React.ReactElement => {
-  const photos = [
-    ...(event.image ? [{ src: event.image, alt: event.alt ?? `Photo from ${event.title}` }] : []),
-    ...event.gallery,
-  ];
-
   return (
     <article className="border-t border-border pt-8">
       <p className="eyebrow">
@@ -42,13 +37,7 @@ export const EventFeature = ({ event }: EventFeatureProps): React.ReactElement =
         </a>
       ) : null}
 
-      {/* A lone image is the event's flyer, not a snapshot — show it whole. */}
-      <PhotoStrip
-        photos={photos}
-        columns={3}
-        fit={photos.length === 1 ? "contain" : "cover"}
-        className="mt-8"
-      />
+      <PhotoStrip photos={event.photos} columns={3} className="mt-8" />
     </article>
   );
 };

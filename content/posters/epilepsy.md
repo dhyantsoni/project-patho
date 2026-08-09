@@ -6,8 +6,28 @@ alt: "Info poster about epilepsy: what causes it, what seizures look like, what 
 pdf: ""
 credit: "Jolina Jian"
 category: "Neurological"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/epilepsy"
+quiz:
+  - question: "What is epilepsy?"
+    options:
+      - "A sickness that makes you sneeze"
+      - "A brain condition that causes seizures"
+      - "A type of allergy"
+      - "A stomach problem"
+    answer: 1
+  - question: "What might happen during a seizure?"
+    options:
+      - "You forget your name"
+      - "You laugh for no reason"
+      - "You feel hungry"
+      - "You may fall down or shake"
+    answer: 3
+  - question: "What should you do if someone has a seizure?"
+    options:
+      - "Yell at them to wake up"
+      - "Put something in their mouth"
+      - "Try to shake them awake"
+      - "Stay calm, keep them safe, and get an adult"
+    answer: 3
 order: 3
 ---
 

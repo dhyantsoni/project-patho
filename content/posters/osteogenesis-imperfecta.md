@@ -6,8 +6,21 @@ alt: "Info poster about osteogenesis imperfecta: what causes it, who can have it
 pdf: ""
 credit: "Jolina Jian"
 category: "Genetic"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/osteogenesis-imperfecta"
+quiz:
+  - question: "What part of the body does OI affect the most?"
+    options:
+      - "Heart"
+      - "Muscles"
+      - "Bones"
+      - "Eyes"
+    answer: 2
+  - question: "What causes Osteogenesis Imperfecta (OI)?"
+    options:
+      - "Collagen problems from genes"
+      - "Falling and breaking bones"
+      - "A virus"
+      - "Germs"
+    answer: 0
 order: 5
 ---
 

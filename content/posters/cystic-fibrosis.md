@@ -6,8 +6,28 @@ alt: "Info poster about cystic fibrosis: cause, effects, treatments and medicati
 pdf: ""
 credit: "Aditi Jain"
 category: "Genetic"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/cystic-fibrosis"
+quiz:
+  - question: "What type of mutation causes Cystic Fibrosis?"
+    options:
+      - "Insertion"
+      - "Deletion"
+      - "Replacement"
+      - "Silent"
+    answer: 1
+  - question: "What is a common symptom of this disease?"
+    options:
+      - "Seizures"
+      - "Weight gain"
+      - "Mucus in the lungs"
+      - "Hallucinations"
+    answer: 2
+  - question: "What can you do to support people with Cystic Fibrosis?"
+    options:
+      - "Be there for them"
+      - "Donate to CFF"
+      - "Join groups or care centers to offer support"
+      - "All of the above"
+    answer: 3
 order: 2
 ---
 

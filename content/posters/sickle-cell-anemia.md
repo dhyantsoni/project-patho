@@ -6,8 +6,6 @@ alt: "Info poster about sickle cell anemia: cause, what happens in the body, tre
 pdf: ""
 credit: "Aarini Parikh"
 category: "Blood"
-quiz: "Take the quiz"
-quizUrl: "https://www.projectpatho.org/resources/info-posters/sickle-cell-anemia"
 order: 6
 ---
 

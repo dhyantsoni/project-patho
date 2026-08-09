@@ -1,5 +1,14 @@
 import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
+import {
+  BookOpen,
+  Calendar,
+  HeartHandshake,
+  Mic,
+  PenTool,
+  Share2,
+  type LucideIcon,
+} from "lucide-react";
 import { site } from "@/lib/site";
 import { getStats } from "@/lib/content";
 import { Container } from "@/components/ui/container";
@@ -14,33 +23,39 @@ export const metadata = pageMeta({
   path: "/join",
 });
 
-const WAYS = [
+const WAYS: { icon: LucideIcon; title: string; blurb: string }[] = [
   {
+    icon: Calendar,
     title: "Run events & workshops",
     blurb:
       "Help plan and lead hands-on sessions that make diseases and disorders make sense to younger kids — from setup to the final high-five.",
   },
   {
+    icon: HeartHandshake,
     title: "Make care packages",
     blurb:
       "Assemble thoughtful bundles of comfort and encouragement for kids and families facing tough diagnoses.",
   },
   {
+    icon: PenTool,
     title: "Cards for Hospitalized Kids",
     blurb:
       "Design and write cheerful, handmade cards that brighten the day of children spending time in the hospital.",
   },
   {
+    icon: Share2,
     title: "Spread awareness",
     blurb:
       "Share our posts, reels, and stories on social media to reduce stigma and reach families who need clear, kind information.",
   },
   {
+    icon: Mic,
     title: "PathoTalks podcast",
     blurb:
       "Research topics, interview guests, or help edit episodes of our podcast that unpacks the science of pathology for everyone.",
   },
   {
+    icon: BookOpen,
     title: "Make info posters",
     blurb:
       "Turn complicated conditions into friendly, accurate posters and resources that teachers and families can actually use.",
@@ -130,12 +145,19 @@ const JoinPage = (): React.ReactElement => {
           </p>
 
           <ul className="mt-10 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
-            {WAYS.map((way) => (
-              <li key={way.title} className="border-t border-border py-6">
-                <h3 className="font-display text-xl font-semibold text-ink">{way.title}</h3>
-                <p className="mt-2 leading-relaxed text-ink-soft">{way.blurb}</p>
-              </li>
-            ))}
+            {WAYS.map((way) => {
+              const Icon = way.icon;
+              return (
+                <li key={way.title} className="border-t border-border py-6">
+                  {/* Pink line art in a maroon roundel, after the logo on our card. */}
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-deep">
+                    <Icon aria-hidden="true" strokeWidth={1.5} className="h-6 w-6 text-pink" />
+                  </span>
+                  <h3 className="mt-4 font-display text-xl font-semibold text-ink">{way.title}</h3>
+                  <p className="mt-2 leading-relaxed text-ink-soft">{way.blurb}</p>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </section>

@@ -50,20 +50,16 @@ export const PosterCard = ({ poster }: { poster: Poster }): React.ReactElement =
 
       <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{poster.summary}</p>
 
-      {poster.quiz ? (
-        poster.quizUrl ? (
-          <a
-            href={poster.quizUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 w-fit font-semibold text-brand underline underline-offset-4 hover:text-brand-deep"
-          >
-            {poster.quiz} ↗
-          </a>
-        ) : (
-          <p className="mt-4 text-sm font-semibold text-brand">{poster.quiz}</p>
-        )
-      ) : null}
+      {poster.quiz.length > 0 ? (
+        <a
+          href={`#quiz-${poster.slug}`}
+          className="mt-4 w-fit font-semibold text-brand underline underline-offset-4 hover:text-brand-deep"
+        >
+          Take the {poster.title} quiz
+        </a>
+      ) : (
+        <p className="mt-4 text-sm text-ink-soft">Quiz coming soon</p>
+      )}
 
       {poster.credit ? (
         <p className="mt-3 text-sm text-ink-soft">Infographic by {poster.credit}</p>

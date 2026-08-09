@@ -74,15 +74,18 @@ const PodcastPage = (): React.ReactElement => {
               </p>
             )}
             <p className="mt-4 max-w-2xl leading-relaxed text-[#F0D5D9]">{latest.summary}</p>
-            <a
-              href={latest.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "onDark" }), "mt-7")}
-            >
-              Listen on Spotify
-              <span className="sr-only"> — {latest.title}</span>
-            </a>
+            {/* Newly-published episodes sit here before their Spotify link exists. */}
+            {latest.link ? (
+              <a
+                href={latest.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(buttonVariants({ variant: "onDark" }), "mt-7")}
+              >
+                Listen on Spotify
+                <span className="sr-only"> — {latest.title}</span>
+              </a>
+            ) : null}
           </Container>
         </section>
       )}

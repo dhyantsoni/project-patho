@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PosterGallery } from "@/components/resources/poster-gallery";
+import { PosterQuiz } from "@/components/resources/poster-quiz";
 
 export const metadata = pageMeta({
   title: "Resources — Info Posters",
@@ -15,6 +16,7 @@ export const metadata = pageMeta({
 
 const ResourcesPage = (): React.ReactElement => {
   const posters = getPosters();
+  const quizzes = posters.filter((p) => p.quiz.length > 0);
 
   return (
     <>
@@ -46,6 +48,42 @@ const ResourcesPage = (): React.ReactElement => {
           </p>
         </Container>
       </section>
+
+      {/* ===== Quizzes ===== */}
+      {quizzes.length > 0 ? (
+        <section id="quizzes" aria-labelledby="quizzes-heading" className="border-t border-border py-16">
+          <Container>
+            <h2
+              id="quizzes-heading"
+              className="font-display text-3xl font-semibold text-ink sm:text-4xl"
+            >
+              Quiz yourself
+            </h2>
+            <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
+              Read a poster, then check what you remember. Answers are marked right here — nothing
+              is sent anywhere and you can retake a quiz as many times as you like.
+            </p>
+
+            <ul className="mt-12 space-y-16">
+              {quizzes.map((poster) => (
+                <li
+                  key={poster.slug}
+                  id={`quiz-${poster.slug}`}
+                  className="scroll-mt-20 border-t border-border pt-8"
+                >
+                  <h3 className="font-display text-2xl font-semibold text-ink">{poster.title}</h3>
+                  {poster.credit ? (
+                    <p className="mt-1 text-sm text-ink-soft">Quiz by {poster.credit}</p>
+                  ) : null}
+                  <div className="mt-6 max-w-2xl">
+                    <PosterQuiz questions={poster.quiz} title={poster.title} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      ) : null}
 
       {/* ===== CTA ===== */}
       <section aria-labelledby="resources-cta-heading" className="bg-brand-deep py-16 text-[#FDF4F2]">

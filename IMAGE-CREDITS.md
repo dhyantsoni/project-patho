@@ -17,6 +17,8 @@ by the team (August 2026) from the pages of the previous Google Sites build.
 | `event-*.webp` (78 files)                                                                                | Every photo from every event, in the same order as the team's own past-events page, plus the Skeletal System Event flyer | Events, Join, Home |
 | `cards-for-kids-*.webp` (4 files)                                                                        | Cards for Hospitalized Kids sessions                                                     | Events — Cards for Hospitalized Kids |
 | `poster-*.webp` (6 files)                                                                                | Info posters, credited to their student author in `content/posters/*.md`                 | Resources                            |
+| `podcast-ep-01…11.webp`                                                                                  | PathoTalks episode cover art, one per episode                                            | Podcast                              |
+| `logo.png`, `src/app/icon.png`, `src/app/apple-icon.png`                                                 | The stethoscope roundel from the team's business card                                    | Header, home hero, browser tab       |
 
 Poster authors, as credited on each poster: Bipolar Disorder — Ridah Mannat;
 Cystic Fibrosis and Fragile X Syndrome — Aditi Jain; Epilepsy and Osteogenesis
@@ -42,10 +44,16 @@ placeholder rather than a broken image.
 | `src/app/icon.svg`                                    | Favicon — the "living cell" logo mark                                     | Original — © ProjectPatho |
 | `<Cell>` SVG blobs & poster/episode/team placeholders | Inline SVG illustration, the site's signature motif                       | Original — © ProjectPatho |
 
+The logo was lifted from the business card artwork, trimmed, and masked to a
+circle so its corners are transparent instead of white.
+
 ## Still to supply
 
-- **Podcast episode art** — optional, per `content/podcast/*.md`. Episodes read
-  well without it, so the slots stay empty rather than showing filler.
+- **Episode 11's Spotify link** — the episode and its cover are in place; paste
+  the URL into `link:` in `content/podcast/episode-11.md` and the Listen button
+  appears.
+- **A Sickle Cell Anemia quiz** — the team's own site marks it "coming soon", so
+  that poster shows the same note. Add a `quiz:` block to give it one.
 
 ## How to add a new image
 

@@ -14,10 +14,16 @@ credit: "Team member name"
 # Category used by the filter on the Resources page
 # (e.g. Mental Health, Genetic, Neurological, Blood & Genetic).
 category: "Genetic"
-# Optional quiz. `quiz` is the wording shown on the card; with a `quizUrl` it
-# becomes a link, without one it's just a note (e.g. "Quiz coming soon").
-quiz: "Take the quiz"
-quizUrl: "https://docs.google.com/forms/d/e/..."
+# Optional quiz, answered on our own Resources page. `answer` is the position of
+# the right option, counting from 0 (so 0 = the first option). Delete the whole
+# `quiz:` block and the card shows "Quiz coming soon" instead.
+quiz:
+  - question: "What does this condition affect?"
+    options:
+      - "The right answer"
+      - "A wrong answer"
+      - "Another wrong answer"
+    answer: 0
 # For filtering/sorting on the Resources page.
 order: 10
 ---

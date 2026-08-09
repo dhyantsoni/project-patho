@@ -28,7 +28,7 @@ const resolveImage = (file?: string): string | undefined => {
 };
 
 /**
- * Resolves a content `link:`/`quizUrl:`/`pdf:` value to a usable href, keeping
+ * Resolves a content `link:`/`pdf:` value to a usable href, keeping
  * only schemes that are safe to put in an anchor. Anything else — most
  * pointedly `javascript:` — is dropped, so a link pasted into a content file
  * can never become script. Site-relative paths ("/handout.pdf") pass through.
@@ -43,6 +43,55 @@ const resolveUrl = (raw?: string): string | undefined => {
   } catch {
     return undefined;
   }
+};
+
+/**
+ * Reads a WebP's pixel dimensions straight from its header, so photos can be
+ * laid out at their true shape instead of being cropped into a fixed frame.
+ * Covers the three WebP flavours (lossy, lossless, extended). Returns undefined
+ * for anything it can't parse, and the caller falls back to a default box.
+ */
+const webpSize = (file: string): { width: number; height: number } | undefined => {
+  let head: Buffer;
+  try {
+    const fd = fs.openSync(file, "r");
+    head = Buffer.alloc(30);
+    fs.readSync(fd, head, 0, 30, 0);
+    fs.closeSync(fd);
+  } catch {
+    return undefined;
+  }
+  if (head.toString("ascii", 0, 4) !== "RIFF" || head.toString("ascii", 8, 12) !== "WEBP") {
+    return undefined;
+  }
+  switch (head.toString("ascii", 12, 16)) {
+    case "VP8 ":
+      return { width: head.readUInt16LE(26) & 0x3fff, height: head.readUInt16LE(28) & 0x3fff };
+    case "VP8L": {
+      const bits = head.readUInt32LE(21);
+      return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+    }
+    case "VP8X":
+      return {
+        width: (head[24] | (head[25] << 8) | (head[26] << 16)) + 1,
+        height: (head[27] | (head[28] << 8) | (head[29] << 16)) + 1,
+      };
+    default:
+      return undefined;
+  }
+};
+
+/**
+ * A photo ready to render: a resolved path, its alt text, and its true pixel
+ * size so grids can show the whole frame rather than cropping to fit.
+ */
+export type Photo = { src: string; alt: string; width?: number; height?: number };
+
+/** Resolve one `public/images` filename into a Photo, or undefined if missing. */
+export const getPhoto = (file: string, alt: string): Photo | undefined => {
+  const src = resolveImage(file);
+  if (!src) return undefined;
+  return { src, alt, ...webpSize(path.join(PUBLIC_IMAGES_DIR, src.replace("/images/", ""))) };
 };
 
 type Frontmatter = Record<string, unknown>;
@@ -103,8 +152,8 @@ export type Episode = {
   interviewer?: string;
   date: string;
   summary: string;
-  image?: string;
-  alt?: string;
+  /** Cover art, measured so it renders at its true shape. */
+  cover?: Photo;
   link: string;
   embed?: string;
   body: string;
@@ -121,16 +170,17 @@ export const getEpisodes = (): Episode[] =>
       interviewer: e.data.interviewer ? String(e.data.interviewer) : undefined,
       date: String(e.data.date ?? ""),
       summary: String(e.data.summary ?? ""),
-      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
-      alt: e.data.alt ? String(e.data.alt) : undefined,
+      cover: e.data.image
+        ? getPhoto(
+            String(e.data.image),
+            e.data.alt ? String(e.data.alt) : `Cover art for ${String(e.data.title ?? "")}`,
+          )
+        : undefined,
       link: resolveUrl(e.data.link ? String(e.data.link) : undefined) ?? "",
       embed: e.data.embed ? String(e.data.embed) : undefined,
       body: e.body,
     }))
     .sort((a, b) => b.episode - a.episode);
-
-/** One extra photo in an item's gallery — resolved the same way as `image`. */
-export type Photo = { src: string; alt: string };
 
 /**
  * Reads a `gallery:` list of `{ image, alt }` entries from frontmatter, keeping
@@ -142,8 +192,9 @@ const resolveGallery = (raw: unknown, fallbackAlt: string): Photo[] => {
   return raw.flatMap((entry) => {
     if (typeof entry !== "object" || entry === null) return [];
     const { image, alt } = entry as { image?: unknown; alt?: unknown };
-    const src = resolveImage(image ? String(image) : undefined);
-    return src ? [{ src, alt: alt ? String(alt) : fallbackAlt }] : [];
+    if (!image) return [];
+    const photo = getPhoto(String(image), alt ? String(alt) : fallbackAlt);
+    return photo ? [photo] : [];
   });
 };
 
@@ -157,7 +208,8 @@ export type EventItem = {
   summary: string;
   image?: string;
   alt?: string;
-  gallery: Photo[];
+  /** The whole album — the `image:` photo first, then the `gallery:` ones. */
+  photos: Photo[];
   link?: string;
   linkLabel?: string;
   cardsForKids: boolean;
@@ -166,23 +218,49 @@ export type EventItem = {
 
 export const getEvents = (): EventItem[] =>
   readCollection("events")
-    .map((e) => ({
-      slug: e.slug,
-      title: String(e.data.title ?? ""),
-      date: String(e.data.date ?? ""),
-      displayDate: e.data.displayDate ? String(e.data.displayDate) : undefined,
-      status: (e.data.status === "upcoming" ? "upcoming" : "past") as "upcoming" | "past",
-      location: String(e.data.location ?? ""),
-      summary: String(e.data.summary ?? ""),
-      image: resolveImage(e.data.image ? String(e.data.image) : undefined),
-      alt: e.data.alt ? String(e.data.alt) : undefined,
-      gallery: resolveGallery(e.data.gallery, `Photo from ${String(e.data.title ?? "the event")}`),
-      link: resolveUrl(e.data.link ? String(e.data.link) : undefined),
-      linkLabel: e.data.linkLabel ? String(e.data.linkLabel) : undefined,
-      cardsForKids: Boolean(e.data.cards_for_kids ?? false),
-      body: e.body,
-    }))
+    .map((e) => {
+      const title = String(e.data.title ?? "");
+      const alt = e.data.alt ? String(e.data.alt) : undefined;
+      const lead = e.data.image
+        ? getPhoto(String(e.data.image), alt ?? `Photo from ${title}`)
+        : undefined;
+      return {
+        slug: e.slug,
+        title,
+        date: String(e.data.date ?? ""),
+        displayDate: e.data.displayDate ? String(e.data.displayDate) : undefined,
+        status: (e.data.status === "upcoming" ? "upcoming" : "past") as "upcoming" | "past",
+        location: String(e.data.location ?? ""),
+        summary: String(e.data.summary ?? ""),
+        image: lead?.src,
+        alt,
+        photos: [
+          ...(lead ? [lead] : []),
+          ...resolveGallery(e.data.gallery, `Photo from ${title || "the event"}`),
+        ],
+        link: resolveUrl(e.data.link ? String(e.data.link) : undefined),
+        linkLabel: e.data.linkLabel ? String(e.data.linkLabel) : undefined,
+        cardsForKids: Boolean(e.data.cards_for_kids ?? false),
+        body: e.body,
+      };
+    })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
+
+/** One multiple-choice question. `answer` indexes into `options`. */
+export type QuizQuestion = { question: string; options: string[]; answer: number };
+
+/** Reads a `quiz:` list, dropping malformed entries rather than half-rendering. */
+const resolveQuiz = (raw: unknown): QuizQuestion[] => {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((entry) => {
+    if (typeof entry !== "object" || entry === null) return [];
+    const { question, options, answer } = entry as Record<string, unknown>;
+    if (!question || !Array.isArray(options) || options.length < 2) return [];
+    const index = Number(answer);
+    if (!Number.isInteger(index) || index < 0 || index >= options.length) return [];
+    return [{ question: String(question), options: options.map(String), answer: index }];
+  });
+};
 
 export type Poster = {
   slug: string;
@@ -193,9 +271,7 @@ export type Poster = {
   pdf?: string;
   credit?: string;
   category?: string;
-  quiz?: string;
-  /** Where the quiz lives. With one, `quiz` becomes the link's label. */
-  quizUrl?: string;
+  quiz: QuizQuestion[];
   order: number;
   body: string;
 };
@@ -211,8 +287,7 @@ export const getPosters = (): Poster[] =>
       pdf: resolveUrl(e.data.pdf ? String(e.data.pdf) : undefined),
       credit: e.data.credit ? String(e.data.credit) : undefined,
       category: e.data.category ? String(e.data.category) : undefined,
-      quiz: e.data.quiz ? String(e.data.quiz) : undefined,
-      quizUrl: resolveUrl(e.data.quizUrl ? String(e.data.quizUrl) : undefined),
+      quiz: resolveQuiz(e.data.quiz),
       order: Number(e.data.order ?? 99),
       body: e.body,
     }))
