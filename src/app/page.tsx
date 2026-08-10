@@ -13,7 +13,7 @@ const pathways = [
   {
     href: "/resources",
     label: "Info Posters",
-    desc: "Six illustrated guides to conditions like epilepsy and sickle cell, written for ages 7–11 — each with a quiz.",
+    desc: "Six illustrated guides to conditions like epilepsy and sickle cell, written for ages 7–11. Each one has a quiz.",
   },
   {
     href: "/podcast",
@@ -28,7 +28,7 @@ const pathways = [
   {
     href: "/team",
     label: "The Team",
-    desc: "Ten student officers and two interns, and what each of them works on.",
+    desc: "The ten student officers and two interns who run ProjectPatho.",
   },
 ];
 
@@ -80,9 +80,9 @@ const HomePage = (): React.ReactElement => {
             <span>Fiscally sponsored by {site.fiscalSponsor.name}</span>
           </p>
 
-          <p className="mt-10 max-w-3xl font-display text-2xl leading-snug text-ink sm:text-3xl">
-            We teach elementary and middle schoolers what diseases actually are — in libraries, on
-            posters, and on a podcast — so the words stop being frightening.
+          {/* The team's own wording, from their mission statement. */}
+          <p className="mt-10 max-w-3xl font-display text-xl leading-snug text-ink sm:text-2xl">
+            {site.mission}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href="/resources" className={cn(buttonVariants({ size: "lg" }))}>
@@ -107,12 +107,11 @@ const HomePage = (): React.ReactElement => {
             />
             <div>
               <h2 className="font-display text-4xl leading-[1.05] font-semibold text-ink sm:text-5xl">
-                What we do.
+                Our mission
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-ink-soft">{site.mission}</p>
-              <p className="mt-4 leading-relaxed text-ink-soft">
+              <p className="mt-6 text-lg leading-relaxed text-ink-soft">
                 We teach medical and biological concepts through posters, workshops, a podcast, and
-                social media — making complex topics accessible, accurate, and genuinely fun.
+                social media, making complex topics accessible, accurate, and genuinely fun.
               </p>
               <Link href="/join" className={cn(buttonVariants({ variant: "outline" }), "mt-8")}>
                 Get involved
@@ -244,7 +243,7 @@ const HomePage = (): React.ReactElement => {
       <section aria-labelledby="explore-heading" className="border-t border-border pt-10 pb-24">
         <Container>
           <h2 id="explore-heading" className="font-display text-xl font-semibold text-ink">
-            Elsewhere on this site
+            More from ProjectPatho
           </h2>
           <ol className="mt-6">
             {pathways.map((p, i) => (

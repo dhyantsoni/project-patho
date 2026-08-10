@@ -33,7 +33,6 @@ const TeamPage = (): React.ReactElement => {
           <p className="dateline mt-3 border-t border-border pt-3">
             <span>{members.length} officers</span>
             <span>{INTERNS.length} interns</span>
-            <span>All of them still in high school</span>
           </p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             ProjectPatho is built by students — curious, driven young people who believe science

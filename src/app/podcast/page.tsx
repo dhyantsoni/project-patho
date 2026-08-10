@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export const metadata = pageMeta({
   title: "PathoTalks Podcast",
   description:
-    "PathoTalks is the ProjectPatho podcast — warm, honest conversations with real doctors and scientists about the work they do and the conditions they treat.",
+    "PathoTalks is the ProjectPatho podcast. Our team interviews doctors and scientists about the work they do and the conditions they treat.",
   path: "/podcast",
 });
 
@@ -36,7 +36,7 @@ const PodcastPage = (): React.ReactElement => {
           </h1>
           <p className="dateline mt-3 border-t border-border pt-3">
             <span>{episodes.length} episodes</span>
-            <span>Interviewed and hosted by students</span>
+            <span>On Spotify</span>
           </p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Conversations with real doctors and scientists about the work they do. Every episode, our
@@ -66,7 +66,7 @@ const PodcastPage = (): React.ReactElement => {
             >
               {latest.title}
             </h2>
-            <p className="mt-2 text-[#F0D5D9]">Episode {latest.episode}, out now</p>
+            <p className="mt-2 text-[#F0D5D9]">Episode {latest.episode}</p>
             {(latest.guest || latest.specialty) && (
               <p className="mt-3 text-[#F0D5D9]">
                 {latest.guest}
@@ -95,7 +95,7 @@ const PodcastPage = (): React.ReactElement => {
       <section aria-labelledby="episodes-heading" className="py-16 sm:py-20">
         <Container>
           <h2 id="episodes-heading" className="font-display text-xl font-semibold text-ink">
-            Every episode
+            All episodes
           </h2>
           <div className="mt-8">
             <EpisodeList episodes={episodes} />
@@ -107,7 +107,7 @@ const PodcastPage = (): React.ReactElement => {
       <section aria-labelledby="coming-soon-heading" className="border-t border-border py-14">
         <Container>
           <h2 id="coming-soon-heading" className="font-display text-xl font-semibold text-ink">
-            Who we&apos;re recording next
+            Coming soon
           </h2>
           <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-ink">
             {COMING_SOON.map((specialty) => (

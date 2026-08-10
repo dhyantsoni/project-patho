@@ -75,7 +75,6 @@ const JoinPage = (): React.ReactElement => {
           </h1>
           <p className="dateline mt-3 border-t border-border pt-3">
             <span>{WAYS.length} ways to help</span>
-            <span>Open to any student</span>
           </p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Whether you&apos;re a student who loves science or a volunteer who wants to make a
@@ -124,7 +123,7 @@ const JoinPage = (): React.ReactElement => {
             />
             <div>
               <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
-                What volunteering looks like
+                What our volunteers do
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-ink-soft">
                 From library workshops to care-package drives, our volunteers turn big, scary medical
@@ -143,10 +142,11 @@ const JoinPage = (): React.ReactElement => {
             id="ways-heading"
             className="font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl"
           >
-            Pick what fits you
+            Ways to get involved
           </h2>
           <p className="mt-4 max-w-2xl text-ink-soft">
-            Every role helps a kid somewhere understand their body a little better.
+            Pick whichever fits you best. Every role helps a kid somewhere understand their body a
+            little better.
           </p>
 
           <ul className="mt-10 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -172,7 +172,7 @@ const JoinPage = (): React.ReactElement => {
         <Container>
           <div className="max-w-2xl">
             <h2 id="form-heading" className="font-display text-3xl font-semibold sm:text-4xl">
-              Ready to sign up?
+              Sign up
             </h2>
             <p className="mt-4 text-[#F0D5D9]">
               Tell us a little about yourself and how you&apos;d like to help. We read every response

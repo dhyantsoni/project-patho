@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export const metadata = pageMeta({
   title: "Contact",
   description:
-    "Have a question for ProjectPatho? Reach us by email or on Instagram — we'd love to hear from students, teachers, and families.",
+    "Have a question for ProjectPatho? Reach us by email or on Instagram. We'd love to hear from students, teachers, and families.",
   path: "/contact",
 });
 
@@ -19,10 +19,7 @@ const ContactPage = (): React.ReactElement => (
         <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
           Any questions?
         </h1>
-        <p className="dateline mt-3 border-t border-border pt-3">
-          <span>We read everything</span>
-          <span>Students, teachers, and families welcome</span>
-        </p>
+        <div className="mt-3 border-t border-border" />
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
           We&apos;re always happy to hear from students, teachers, and families. Whether you&apos;re
           curious about our work, want to collaborate, or just want to say hi, reach out any time.

@@ -13,7 +13,7 @@ import { PhotoStrip } from "@/components/media/photo-strip";
 export const metadata = pageMeta({
   title: "Events",
   description:
-    "Workshops, club meets, and community events where ProjectPatho brings warm, hands-on science to kids — plus our ongoing Cards for Hospitalized Kids program.",
+    "Workshops, club meets, and community events where ProjectPatho brings hands-on science to kids, plus our ongoing Cards for Hospitalized Kids program.",
   path: "/events",
 });
 
@@ -32,11 +32,11 @@ const EventsPage = (): React.ReactElement => {
             Events
           </h1>
           <p className="dateline mt-3 border-t border-border pt-3">
-            <span>{past.length + upcoming.length} so far</span>
+            <span>{past.length + upcoming.length} events</span>
             <span>Libraries, schools, and hospitals across San Diego</span>
           </p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
-            We take science off the page and into libraries, classrooms, and community spaces —
+            We take science off the page and into libraries, classrooms, and community spaces, with
             hands-on workshops where kids build first aid kits, explore the brain, and learn how
             their bodies work. Here&apos;s where we&apos;ve been, and where you can find us next.
           </p>
@@ -143,11 +143,11 @@ const EventsPage = (): React.ReactElement => {
             id="past-heading"
             className="font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl"
           >
-            Where we&apos;ve been
+            Past events
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
-            Every workshop and gathering we&apos;ve run across San Diego — from the 4s Ranch Library
-            to Ronald McDonald House Charities — with all the photos from each.
+            Every workshop and gathering we&apos;ve run across San Diego, from the 4s Ranch Library
+            to Ronald McDonald House Charities, with all the photos from each.
           </p>
 
           {/* Every event keeps its whole album, newest first — same as the

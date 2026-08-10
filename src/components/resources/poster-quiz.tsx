@@ -103,7 +103,7 @@ export const PosterQuiz = ({ questions, title }: PosterQuizProps): React.ReactEl
             ? `You got ${score} of ${questions.length} right on the ${title} quiz.`
             : answered < questions.length
               ? `${questions.length - answered} question${questions.length - answered === 1 ? "" : "s"} left.`
-              : "All answered — check them below."}
+              : "All answered. Check them below."}
         </p>
       </div>
     </div>

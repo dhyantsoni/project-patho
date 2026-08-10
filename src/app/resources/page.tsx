@@ -10,7 +10,7 @@ import { PosterQuiz } from "@/components/resources/poster-quiz";
 export const metadata = pageMeta({
   title: "Resources — Info Posters",
   description:
-    "Friendly, accurate info posters that teach kids ages 7–11 about diseases and disorders — reducing stigma and growing empathy, one condition at a time.",
+    "Info posters that teach kids ages 7–11 about diseases and disorders, written and illustrated by ProjectPatho students.",
   path: "/resources",
 });
 
@@ -34,7 +34,7 @@ const ResourcesPage = (): React.ReactElement => {
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Our info posters are friendly, carefully-checked guides that help kids ages 7–11
             understand diseases and disorders. Each one turns a big medical topic into something
-            clear and kind — so younger readers can trade fear and stigma for curiosity and empathy.
+            clear and kind, so younger readers can trade fear and stigma for curiosity and empathy.
           </p>
         </Container>
       </section>
@@ -64,8 +64,8 @@ const ResourcesPage = (): React.ReactElement => {
               Quiz yourself
             </h2>
             <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
-              Read a poster, then check what you remember. Answers are marked right here — nothing
-              is sent anywhere and you can retake a quiz as many times as you like.
+              Read a poster, then check what you remember. Answers are marked on this page, nothing
+              is sent anywhere, and you can retake a quiz as many times as you like.
             </p>
 
             <ul className="mt-12 space-y-16">
@@ -97,7 +97,7 @@ const ResourcesPage = (): React.ReactElement => {
               id="resources-cta-heading"
               className="font-display text-3xl font-semibold sm:text-4xl"
             >
-              Help make the next poster
+              Want to help?
             </h2>
             <p className="mt-4 text-[#F0D5D9]">
               We&apos;re always looking for students to research, write, and illustrate the next

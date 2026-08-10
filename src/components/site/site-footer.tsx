@@ -16,8 +16,8 @@ export const SiteFooter = (): React.ReactElement => {
               Project<span className="text-pink">Patho</span>
             </p>
             <p className="mt-4 max-w-sm leading-relaxed text-[#F0D5D9]">
-              A student-led nonprofit teaching young learners about diseases and disorders — to
-              reduce stigma, inspire empathy, and spark a love of science.
+              A student-led nonprofit that teaches elementary and middle school students about
+              diseases and disorders.
             </p>
           </div>
 
