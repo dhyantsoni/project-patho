@@ -7,8 +7,8 @@ const NotFound = (): React.ReactElement => (
   <section className="py-24 sm:py-32">
     <Container>
       <div className="max-w-xl">
-        <p className="eyebrow">404</p>
-        <h1 className="mt-5 font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <p className="font-display text-6xl font-semibold text-brand">404</p>
+        <h1 className="mt-4 font-display text-4xl font-semibold text-ink sm:text-5xl">
           We couldn&apos;t find that page
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-ink-soft">

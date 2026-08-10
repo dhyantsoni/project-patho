@@ -25,14 +25,17 @@ const EventsPage = (): React.ReactElement => {
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-20">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-12">
         <Container>
-          <p className="eyebrow">Out in the community</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+          <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
             Events
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>{past.length + upcoming.length} so far</span>
+            <span>Libraries, schools, and hospitals across San Diego</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             We take science off the page and into libraries, classrooms, and community spaces —
             hands-on workshops where kids build first aid kits, explore the brain, and learn how
             their bodies work. Here&apos;s where we&apos;ve been, and where you can find us next.
@@ -41,12 +44,9 @@ const EventsPage = (): React.ReactElement => {
       </section>
 
       {/* ===== Upcoming ===== */}
-      <section id="upcoming" aria-labelledby="upcoming-heading" className="scroll-mt-20 pb-16">
+      <section id="upcoming" aria-labelledby="upcoming-heading" className="scroll-mt-20 pb-14">
         <Container>
-          <h2
-            id="upcoming-heading"
-            className="font-display text-3xl font-semibold text-ink sm:text-4xl"
-          >
+          <h2 id="upcoming-heading" className="font-display text-xl font-semibold text-ink">
             Upcoming events
           </h2>
 
@@ -59,7 +59,7 @@ const EventsPage = (): React.ReactElement => {
               ))}
             </ul>
           ) : (
-            <div className="mt-8 max-w-2xl border-t border-border pt-6">
+            <div className="mt-6 max-w-2xl border-t border-border pt-6">
               <p className="leading-relaxed text-ink-soft">
                 We&apos;re busy planning our next workshops. Follow us on Instagram or join the team
                 to be the first to hear when new events go live.
@@ -90,13 +90,12 @@ const EventsPage = (): React.ReactElement => {
           className="scroll-mt-20 bg-brand-deep py-16 text-[#FDF4F2] sm:py-20"
         >
           <Container>
-            <p className="text-xs font-semibold tracking-[0.14em] text-pink uppercase">
-              Ongoing program
-            </p>
-            <h2 id="cards-heading" className="mt-4 font-display text-3xl font-semibold sm:text-4xl">
+            <h2 id="cards-heading" className="font-display text-3xl font-semibold sm:text-4xl">
               {cardsForKids.title}
             </h2>
-            <p className="mt-2 text-[#F0D5D9]">{cardsForKids.location}</p>
+            <p className="mt-2 text-[#F0D5D9]">
+              An ongoing program · {cardsForKids.location}
+            </p>
 
             <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#F0D5D9]">
               {cardsForKids.summary}
@@ -140,12 +139,15 @@ const EventsPage = (): React.ReactElement => {
       {/* ===== Past events ===== */}
       <section id="past" aria-labelledby="past-heading" className="scroll-mt-20 py-16 sm:py-20">
         <Container>
-          <h2 id="past-heading" className="font-display text-3xl font-semibold text-ink sm:text-4xl">
-            Past events
+          <h2
+            id="past-heading"
+            className="font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl"
+          >
+            Where we&apos;ve been
           </h2>
-          <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
-            A look back at the workshops and gatherings we&apos;ve run across San Diego — from the 4s
-            Ranch Library to Ronald McDonald House Charities.
+          <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
+            Every workshop and gathering we&apos;ve run across San Diego — from the 4s Ranch Library
+            to Ronald McDonald House Charities — with all the photos from each.
           </p>
 
           {/* Every event keeps its whole album, newest first — same as the

@@ -67,14 +67,17 @@ const JoinPage = (): React.ReactElement => {
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-20">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-12">
         <Container>
-          <p className="eyebrow">Get involved</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
-            Join ProjectPatho
+          <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+            Join us
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>{WAYS.length} ways to help</span>
+            <span>Open to any student</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Whether you&apos;re a student who loves science or a volunteer who wants to make a
             difference, there&apos;s a place for you here. Help us teach kids about health, reduce
             stigma, and spark a little wonder along the way.
@@ -136,12 +139,14 @@ const JoinPage = (): React.ReactElement => {
       {/* ===== Ways to get involved ===== */}
       <section aria-labelledby="ways-heading" className="border-t border-border py-16">
         <Container>
-          <h2 id="ways-heading" className="font-display text-3xl font-semibold text-ink sm:text-4xl">
-            Ways to get involved
+          <h2
+            id="ways-heading"
+            className="font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl"
+          >
+            Pick what fits you
           </h2>
-          <p className="mt-3 max-w-2xl text-ink-soft">
-            Pick what fits you best — every role helps a kid somewhere understand their body a little
-            better.
+          <p className="mt-4 max-w-2xl text-ink-soft">
+            Every role helps a kid somewhere understand their body a little better.
           </p>
 
           <ul className="mt-10 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">

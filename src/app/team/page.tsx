@@ -24,14 +24,18 @@ const TeamPage = (): React.ReactElement => {
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-20">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-12">
         <Container>
-          <p className="eyebrow">Our people</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
-            Meet the Team
+          <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+            The Team
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>{members.length} officers</span>
+            <span>{INTERNS.length} interns</span>
+            <span>All of them still in high school</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             ProjectPatho is built by students — curious, driven young people who believe science
             belongs to everyone. Meet the leaders behind the posters, the podcast, and every workshop
             we run.
@@ -40,7 +44,7 @@ const TeamPage = (): React.ReactElement => {
       </section>
 
       {/* ===== Team grid ===== */}
-      <section aria-labelledby="team-heading" className="border-t border-border pt-14 pb-16">
+      <section aria-labelledby="team-heading" className="border-t border-border pt-12 pb-16">
         <Container>
           <h2 id="team-heading" className="sr-only">
             Team members

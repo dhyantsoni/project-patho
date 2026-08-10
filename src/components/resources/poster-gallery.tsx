@@ -42,11 +42,9 @@ export const PosterCard = ({ poster }: { poster: Poster }): React.ReactElement =
     )}
 
     <div className="flex flex-1 flex-col pt-5">
-      {poster.category ? <p className="eyebrow">{poster.category}</p> : null}
+      <h3 className="font-display text-xl leading-snug font-semibold text-ink">{poster.title}</h3>
 
-      <h3 className="mt-2 font-display text-xl leading-snug font-semibold text-ink">
-        {poster.title}
-      </h3>
+      {poster.category ? <p className="mt-1 text-sm text-ink-soft">{poster.category}</p> : null}
 
       <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{poster.summary}</p>
 

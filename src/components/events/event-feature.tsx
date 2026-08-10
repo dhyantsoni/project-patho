@@ -15,15 +15,13 @@ type EventFeatureProps = {
 export const EventFeature = ({ event }: EventFeatureProps): React.ReactElement => {
   return (
     <article className="border-t border-border pt-8">
-      <p className="eyebrow">
+      <h3 className="font-display text-3xl leading-tight font-semibold text-ink">{event.title}</h3>
+
+      <p className="mt-2 text-sm text-ink-soft">
         {event.displayDate ?? event.date} · {event.location}
       </p>
 
-      <h3 className="mt-4 font-display text-3xl leading-tight font-semibold text-ink">
-        {event.title}
-      </h3>
-
-      <p className="mt-3 max-w-3xl leading-relaxed text-ink-soft">{event.summary}</p>
+      <p className="mt-4 max-w-3xl leading-relaxed text-ink-soft">{event.summary}</p>
 
       {event.link ? (
         <a

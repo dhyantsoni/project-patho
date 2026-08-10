@@ -29,8 +29,11 @@ export const EpisodeCard = ({ episode }: { episode: Episode }): React.ReactEleme
       )}
 
       <div className="flex flex-1 flex-col">
-        <p className="eyebrow">Episode {episode.episode}</p>
-        <h3 className="mt-2 font-display text-xl leading-snug font-semibold text-ink sm:text-2xl">
+        <h3 className="font-display text-xl leading-snug font-semibold text-ink sm:text-2xl">
+          <span aria-hidden="true" className="text-brand tabular-nums">
+            {episode.episode}.{" "}
+          </span>
+          <span className="sr-only">Episode {episode.episode}: </span>
           {episode.title}
         </h3>
 

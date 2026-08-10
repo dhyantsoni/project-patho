@@ -114,13 +114,19 @@
   }
 }
 
-/* Small caps label used above section headings. */
-.eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+/* Masthead rules. The heavy one sits above the name, the hairline below it. */
+.rule-heavy {
+  border-top: 3px solid var(--ink);
+}
+
+/* Running metadata under the masthead — facts, not a decorative label. */
+.dateline {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+.dateline > * + *::before {
+  content: "·";
+  margin: 0 0.6rem;
   color: var(--brand);
 }
 

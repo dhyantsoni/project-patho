@@ -28,14 +28,17 @@ const PodcastPage = (): React.ReactElement => {
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-20">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-12">
         <Container>
-          <p className="eyebrow">The ProjectPatho podcast</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+          <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
             PathoTalks
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>{episodes.length} episodes</span>
+            <span>Interviewed and hosted by students</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Conversations with real doctors and scientists about the work they do. Every episode, our
             team sits down with a specialist to hear how they help people and what makes their field
             fascinating.
@@ -57,15 +60,13 @@ const PodcastPage = (): React.ReactElement => {
       {latest && (
         <section aria-labelledby="featured-heading" className="bg-brand-deep py-14 text-[#FDF4F2]">
           <Container>
-            <p className="text-xs font-semibold tracking-[0.14em] text-pink uppercase">
-              Latest episode · {latest.episode}
-            </p>
             <h2
               id="featured-heading"
-              className="mt-4 max-w-3xl font-display text-3xl font-semibold sm:text-4xl"
+              className="max-w-3xl font-display text-3xl font-semibold sm:text-4xl"
             >
               {latest.title}
             </h2>
+            <p className="mt-2 text-[#F0D5D9]">Episode {latest.episode}, out now</p>
             {(latest.guest || latest.specialty) && (
               <p className="mt-3 text-[#F0D5D9]">
                 {latest.guest}
@@ -93,16 +94,10 @@ const PodcastPage = (): React.ReactElement => {
       {/* ===== All episodes ===== */}
       <section aria-labelledby="episodes-heading" className="py-16 sm:py-20">
         <Container>
-          <h2
-            id="episodes-heading"
-            className="font-display text-3xl font-semibold text-ink sm:text-4xl"
-          >
-            All episodes
+          <h2 id="episodes-heading" className="font-display text-xl font-semibold text-ink">
+            Every episode
           </h2>
-          <p className="mt-3 max-w-2xl text-ink-soft">
-            Pick a specialty that sparks your curiosity and press play.
-          </p>
-          <div className="mt-10">
+          <div className="mt-8">
             <EpisodeList episodes={episodes} />
           </div>
         </Container>
@@ -111,17 +106,10 @@ const PodcastPage = (): React.ReactElement => {
       {/* ===== Coming soon ===== */}
       <section aria-labelledby="coming-soon-heading" className="border-t border-border py-14">
         <Container>
-          <h2
-            id="coming-soon-heading"
-            className="font-display text-2xl font-semibold text-ink sm:text-3xl"
-          >
-            Coming soon to PathoTalks
+          <h2 id="coming-soon-heading" className="font-display text-xl font-semibold text-ink">
+            Who we&apos;re recording next
           </h2>
-          <p className="mt-3 max-w-2xl text-ink-soft">
-            We&apos;re recording new conversations with specialists across medicine and science.
-            Here&apos;s a peek at who we&apos;re talking to next.
-          </p>
-          <ul className="mt-7 flex flex-wrap gap-x-8 gap-y-2 text-ink">
+          <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-ink">
             {COMING_SOON.map((specialty) => (
               <li key={specialty}>{specialty}</li>
             ))}

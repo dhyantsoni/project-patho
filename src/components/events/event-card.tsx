@@ -25,15 +25,13 @@ export const EventCard = ({ event }: EventCardProps): React.ReactElement => (
       </div>
     ) : null}
 
-    <p className="eyebrow">
+    <h3 className="font-display text-2xl leading-snug font-semibold text-ink">{event.title}</h3>
+
+    <p className="mt-2 text-sm text-ink-soft">
       {event.displayDate ?? event.date} · {event.location}
     </p>
 
-    <h3 className="mt-3 font-display text-2xl leading-snug font-semibold text-ink">
-      {event.title}
-    </h3>
-
-    <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{event.summary}</p>
+    <p className="mt-4 flex-1 leading-relaxed text-ink-soft">{event.summary}</p>
 
     {event.link ? (
       <a

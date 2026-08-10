@@ -20,14 +20,18 @@ const ResourcesPage = (): React.ReactElement => {
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-20">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-12">
         <Container>
-          <p className="eyebrow">Learn with us</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+          <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
             Info Posters
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>{posters.length} posters</span>
+            <span>{quizzes.length} quizzes</span>
+            <span>Written for ages 7–11</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Our info posters are friendly, carefully-checked guides that help kids ages 7–11
             understand diseases and disorders. Each one turns a big medical topic into something
             clear and kind — so younger readers can trade fear and stigma for curiosity and empathy.

@@ -13,29 +13,36 @@ const pathways = [
   {
     href: "/resources",
     label: "Info Posters",
-    desc: "Friendly, kid-first guides to conditions like epilepsy, sickle cell, and more — made for ages 7–11.",
+    desc: "Six illustrated guides to conditions like epilepsy and sickle cell, written for ages 7–11 — each with a quiz.",
   },
   {
     href: "/podcast",
-    label: "PathoTalks Podcast",
-    desc: "Conversations with real doctors and scientists about the work they do and why it matters.",
+    label: "PathoTalks",
+    desc: "Twelve conversations with doctors and scientists, from anesthesiology to the ICU.",
   },
   {
     href: "/events",
     label: "Events",
-    desc: "Workshops, care-package drives, and community days that bring science to life.",
+    desc: "Library workshops, care-package drives, and club meets across San Diego.",
   },
   {
     href: "/team",
-    label: "Meet the Team",
-    desc: "The student leaders behind ProjectPatho, and what they care about.",
+    label: "The Team",
+    desc: "Ten student officers and two interns, and what each of them works on.",
   },
 ];
 
-const missionPoints = ["Reduce stigma", "Inspire empathy", "Spark curiosity", "Teach science"];
-
 const HomePage = (): React.ReactElement => {
   const stats = getStats();
+  // The headline figure carries the section; the rest run underneath it.
+  const lead = stats.find((s) => s.label === "Students Reached") ?? stats[0];
+  const rest = stats.filter((s) => s !== lead);
+
+  const events = getEvents().filter((e) => !e.cardsForKids && e.image);
+  // The event-flyer slot: the next event when one is scheduled, otherwise the
+  // most recent one — so the poster the team made always has a home here.
+  const featured = events.find((e) => e.status === "upcoming") ?? events[0];
+
   // Measured from the files so the wide RMHC group shot keeps everyone in frame.
   const communityPhotos = [
     getPhoto(
@@ -47,38 +54,39 @@ const HomePage = (): React.ReactElement => {
       "Eight ProjectPatho members at the 4s Ranch Library for the Cardiovascular System event, standing around the presentation screen and workshop table",
     ),
   ].filter((p) => p !== undefined);
-  const events = getEvents().filter((e) => !e.cardsForKids && e.image);
-  // The event-flyer slot: the next event when one is scheduled, otherwise the
-  // most recent one — so the poster the team made always has a home here.
-  const featured = events.find((e) => e.status === "upcoming") ?? events[0];
 
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="py-16 sm:py-24">
+      {/* ===== Masthead ===== */}
+      <section className="pt-8 pb-14">
         <Container>
-          <p className="eyebrow">{site.tagline}</p>
-          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <h1 className="font-display text-6xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
+          <div className="rule-heavy flex flex-wrap items-end justify-between gap-x-8 gap-y-4 pt-5">
+            <h1 className="font-display text-6xl leading-[0.95] font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
               Project<span className="text-brand">Patho</span>
             </h1>
-            {/* Decorative: the heading beside it already says the name. */}
+            {/* Decorative: the masthead beside it already says the name. */}
             <Image
               src="/images/logo.png"
               alt=""
               width={112}
               height={112}
               priority
-              className="h-16 w-16 rounded-sm sm:h-20 sm:w-20 md:h-24 md:w-24"
+              className="mb-1 h-14 w-14 rounded-sm sm:h-20 sm:w-20"
             />
           </div>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
-            We help elementary and middle schoolers understand rare and misunderstood conditions —
-            to reduce stigma, grow empathy, and spark a lifelong love of science.
+          <p className="dateline mt-3 border-t border-border pt-3">
+            <span>Student-run nonprofit</span>
+            <span>San Diego, California</span>
+            <span>Fiscally sponsored by {site.fiscalSponsor.name}</span>
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+
+          <p className="mt-10 max-w-3xl font-display text-2xl leading-snug text-ink sm:text-3xl">
+            We teach elementary and middle schoolers what diseases actually are — in libraries, on
+            posters, and on a podcast — so the words stop being frightening.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href="/resources" className={cn(buttonVariants({ size: "lg" }))}>
-              Explore our posters
+              Read the posters
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Link>
             <Link href="/podcast" className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}>
@@ -89,7 +97,7 @@ const HomePage = (): React.ReactElement => {
       </section>
 
       {/* ===== Mission — photo left, text right, as on projectpatho.org ===== */}
-      <section id="about" className="scroll-mt-20 border-t border-border py-16 sm:py-20">
+      <section id="about" className="scroll-mt-20 border-t border-border py-16 sm:py-24">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <Photo
@@ -98,8 +106,7 @@ const HomePage = (): React.ReactElement => {
               priority
             />
             <div>
-              <p className="eyebrow">Our mission</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+              <h2 className="font-display text-4xl leading-[1.05] font-semibold text-ink sm:text-5xl">
                 What we do.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-soft">{site.mission}</p>
@@ -107,13 +114,6 @@ const HomePage = (): React.ReactElement => {
                 We teach medical and biological concepts through posters, workshops, a podcast, and
                 social media — making complex topics accessible, accurate, and genuinely fun.
               </p>
-              <ul className="mt-8 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-                {missionPoints.map((point) => (
-                  <li key={point} className="border-t border-border pt-2 text-ink">
-                    {point}
-                  </li>
-                ))}
-              </ul>
               <Link href="/join" className={cn(buttonVariants({ variant: "outline" }), "mt-8")}>
                 Get involved
               </Link>
@@ -123,13 +123,13 @@ const HomePage = (): React.ReactElement => {
       </section>
 
       {/* ===== Where to start — text left, workshop photo right ===== */}
-      <section aria-labelledby="start-heading" className="border-t border-border py-16 sm:py-20">
+      <section aria-labelledby="start-heading" className="pb-16 sm:pb-20">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2
                 id="start-heading"
-                className="font-display text-3xl leading-snug font-semibold text-ink sm:text-4xl"
+                className="font-display text-2xl leading-snug font-semibold text-ink sm:text-3xl"
               >
                 Check out our upcoming event information below, or our infographics for students
                 aged 7–11.
@@ -156,69 +156,82 @@ const HomePage = (): React.ReactElement => {
 
       {/* ===== Event flyer ===== */}
       {featured?.image ? (
-        <section aria-labelledby="flyer-heading" className="border-t border-border py-16 sm:py-20">
+        <section aria-labelledby="flyer-heading" className="border-t border-border py-14">
           <Container>
-            <h2
-              id="flyer-heading"
-              className="text-center font-display text-3xl font-semibold text-brand sm:text-4xl"
-            >
-              {featured.status === "upcoming"
-                ? "Upcoming event information"
-                : "Our most recent event"}
-            </h2>
-            <Link
-              href="/events"
-              className="group mx-auto mt-10 block w-full max-w-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden bg-pink-soft">
-                <Image
-                  src={featured.image}
-                  alt={featured.alt ?? `Flyer for ${featured.title}`}
-                  fill
-                  sizes="(max-width: 768px) 92vw, 512px"
-                  className="object-contain"
-                />
+            <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center lg:gap-16">
+              <div>
+                <h2
+                  id="flyer-heading"
+                  className="font-display text-3xl leading-tight font-semibold text-ink sm:text-4xl"
+                >
+                  {featured.status === "upcoming"
+                    ? "Our next event"
+                    : "Our most recent event"}
+                </h2>
+                <p className="mt-4 text-lg text-ink-soft">
+                  <span className="font-semibold text-ink">{featured.title}</span>
+                  {featured.displayDate ? ` · ${featured.displayDate}` : null}
+                  {featured.location ? ` · ${featured.location}` : null}
+                </p>
+                <Link
+                  href="/events"
+                  className="mt-6 inline-flex items-center gap-2 font-semibold text-brand underline-offset-4 hover:underline"
+                >
+                  See all our events
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </Link>
               </div>
-              <p className="mt-4 text-center text-ink-soft">
-                <span className="font-semibold text-ink">{featured.title}</span>
-                {featured.displayDate ? ` · ${featured.displayDate}` : null}
-                {featured.location ? ` · ${featured.location}` : null}
-              </p>
-              <span className="mt-2 block text-center font-semibold text-brand underline-offset-4 group-hover:underline">
-                See all our events
-              </span>
-            </Link>
+              <Link
+                href="/events"
+                aria-label={`See all our events — ${featured.title}`}
+                className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden bg-pink-soft md:ml-auto">
+                  <Image
+                    src={featured.image}
+                    alt={featured.alt ?? `Flyer for ${featured.title}`}
+                    fill
+                    sizes="(max-width: 768px) 92vw, 384px"
+                    className="object-contain"
+                  />
+                </div>
+              </Link>
+            </div>
           </Container>
         </section>
       ) : null}
 
-      {/* ===== Impact band ===== */}
+      {/* ===== Impact ===== */}
       <section aria-labelledby="impact-heading" className="bg-brand-deep py-16 text-[#FDF4F2]">
         <Container>
-          <h2 id="impact-heading" className="font-display text-3xl font-semibold sm:text-4xl">
-            Our impact so far
+          <h2 id="impact-heading" className="sr-only">
+            What we have done so far
           </h2>
-          <p className="mt-3 max-w-xl text-[#F0D5D9]">
-            A student team, a growing community, and a lot of curiosity.
-          </p>
-          <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="border-t border-white/25 pt-4">
-                <dt className="sr-only">{stat.label}</dt>
-                <dd>
-                  <span className="block font-display text-4xl font-semibold text-pink sm:text-5xl">
-                    {stat.value}
-                  </span>
-                  <span className="mt-2 block text-sm text-[#F0D5D9]">{stat.label}</span>
+          <dl className="grid gap-x-12 gap-y-10 md:grid-cols-[auto_1fr] md:items-end">
+            {lead ? (
+              <div>
+                <dd className="font-display text-7xl leading-none font-semibold text-pink sm:text-8xl">
+                  {lead.value}
                 </dd>
+                <dt className="mt-3 text-lg text-[#F0D5D9]">{lead.label.toLowerCase()}</dt>
               </div>
-            ))}
+            ) : null}
+            <div className="grid grid-cols-2 gap-x-8 sm:grid-cols-3">
+              {rest.map((stat) => (
+                <div key={stat.label} className="border-t border-white/25 py-3">
+                  <dd className="font-display text-2xl font-semibold text-[#FDF4F2]">
+                    {stat.value}
+                  </dd>
+                  <dt className="text-sm text-[#F0D5D9]">{stat.label.toLowerCase()}</dt>
+                </div>
+              ))}
+            </div>
           </dl>
         </Container>
       </section>
 
-      {/* ===== Two photos under the stats, as on projectpatho.org ===== */}
-      <section aria-labelledby="community-heading" className="py-16 sm:py-20">
+      {/* ===== Two photos, as on projectpatho.org ===== */}
+      <section aria-labelledby="community-heading" className="py-14">
         <Container>
           <h2 id="community-heading" className="sr-only">
             ProjectPatho out in the community
@@ -227,34 +240,35 @@ const HomePage = (): React.ReactElement => {
         </Container>
       </section>
 
-      {/* ===== Pathways ===== */}
-      <section aria-labelledby="explore-heading" className="border-t border-border py-16 sm:py-20">
+      {/* ===== Index ===== */}
+      <section aria-labelledby="explore-heading" className="border-t border-border pt-10 pb-24">
         <Container>
-          <h2
-            id="explore-heading"
-            className="font-display text-3xl font-semibold text-ink sm:text-4xl"
-          >
-            Where would you like to start?
+          <h2 id="explore-heading" className="font-display text-xl font-semibold text-ink">
+            Elsewhere on this site
           </h2>
-          <ul className="mt-10 grid gap-x-16 sm:grid-cols-2">
-            {pathways.map((p) => (
+          <ol className="mt-6">
+            {pathways.map((p, i) => (
               <li key={p.href} className="border-t border-border">
                 <Link
                   href={p.href}
-                  className="group block py-7 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="group grid grid-cols-[2.5rem_1fr] items-baseline gap-x-4 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:grid-cols-[3rem_14rem_1fr]"
                 >
-                  <h3 className="flex items-center gap-2 font-display text-2xl font-semibold text-ink group-hover:text-brand">
+                  <span
+                    aria-hidden="true"
+                    className="font-display text-sm text-brand tabular-nums"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-2xl font-semibold text-ink group-hover:text-brand sm:text-xl">
                     {p.label}
-                    <ArrowRight
-                      aria-hidden="true"
-                      className="h-5 w-5 text-brand transition-transform group-hover:translate-x-1"
-                    />
                   </h3>
-                  <p className="mt-2 leading-relaxed text-ink-soft">{p.desc}</p>
+                  <p className="col-start-2 mt-1 leading-relaxed text-ink-soft sm:col-start-3 sm:mt-0">
+                    {p.desc}
+                  </p>
                 </Link>
               </li>
             ))}
-          </ul>
+          </ol>
         </Container>
       </section>
     </>

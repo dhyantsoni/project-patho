@@ -13,14 +13,17 @@ export const metadata = pageMeta({
 
 const ContactPage = (): React.ReactElement => (
   <>
-    {/* ===== Hero ===== */}
-    <section className="py-16 sm:py-20">
+    {/* ===== Masthead ===== */}
+    <section className="pt-8 pb-12">
       <Container>
-        <p className="eyebrow">Say hello</p>
-        <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
+        <h1 className="rule-heavy pt-5 font-display text-5xl leading-[1.05] font-semibold text-ink sm:text-6xl">
           Any questions?
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+        <p className="dateline mt-3 border-t border-border pt-3">
+          <span>We read everything</span>
+          <span>Students, teachers, and families welcome</span>
+        </p>
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
           We&apos;re always happy to hear from students, teachers, and families. Whether you&apos;re
           curious about our work, want to collaborate, or just want to say hi, reach out any time.
         </p>
@@ -35,7 +38,7 @@ const ContactPage = (): React.ReactElement => (
         </h2>
         <dl className="grid gap-x-16 gap-y-8 sm:grid-cols-2">
           <div className="border-t border-border pt-5">
-            <dt className="eyebrow">Email</dt>
+            <dt className="text-sm text-ink-soft">Email</dt>
             <dd className="mt-2">
               <a
                 href={`mailto:${site.email}`}
@@ -46,7 +49,7 @@ const ContactPage = (): React.ReactElement => (
             </dd>
           </div>
           <div className="border-t border-border pt-5">
-            <dt className="eyebrow">Instagram</dt>
+            <dt className="text-sm text-ink-soft">Instagram</dt>
             <dd className="mt-2">
               <a
                 href={site.instagram}
@@ -89,7 +92,7 @@ const ContactPage = (): React.ReactElement => (
     <section aria-labelledby="partner-heading" className="py-14">
       <Container>
         <div className="max-w-2xl border-t border-border pt-6">
-          <h2 id="partner-heading" className="eyebrow">
+          <h2 id="partner-heading" className="font-display text-lg font-semibold text-ink">
             Our fiscal sponsor
           </h2>
           <p className="mt-3 leading-relaxed text-ink-soft">
