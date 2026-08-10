@@ -1,5 +1,5 @@
 ---
-title: "How Mental Health Treatment Works, with Dr. Savita Bhakta"
+title: "Stories of Self: Psychiatry with Dr. Savita Bhakta"
 episode: 5
 guest: "Dr. Savita Bhakta"
 specialty: "Psychiatrist"

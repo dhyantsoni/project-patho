@@ -1,5 +1,5 @@
 ---
-title: "Infectious Disease & Public Health, with Dr. Quan"
+title: "Understanding Infectious Diseases with Dr. Quan"
 episode: 6
 guest: "Dr. Quan"
 specialty: "Infectious Disease Doctor"

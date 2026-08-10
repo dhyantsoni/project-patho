@@ -1,5 +1,5 @@
 ---
-title: "Life in the ICU, with Dr. Amit Kulkarni"
+title: "Inside the ICU - The World of Critical Care Medicine"
 episode: 9
 guest: "Dr. Amit Kulkarni"
 specialty: "Critical Care Specialist"

@@ -1,7 +1,7 @@
 ---
-title: "Speech & Swallowing, with Vidya"
+title: "A Journey into Speech Therapy"
 episode: 8
-guest: "Vidya"
+guest: "Vidya Ramesh"
 specialty: "Speech-Language Pathologist"
 interviewer: "Aditi"
 date: ""

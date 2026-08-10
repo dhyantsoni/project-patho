@@ -18,7 +18,7 @@ export const site = {
   // Spotify SHOW page for PathoTalks (so people can follow/subscribe). Paste the
   // show URL here (open.spotify.com/show/…) and a "Follow PathoTalks" button
   // appears on the Podcast page. Leave empty to hide it.
-  podcastShow: "",
+  podcastShow: "https://open.spotify.com/show/5FsyVw5fQ7bbhdEhK3Sjxz",
   fiscalSponsor: {
     name: "Brushstrokes for Biodiversity",
     note: "Fiscally sponsored by Brushstrokes for Biodiversity, a 501(c)(3) nonprofit organization.",

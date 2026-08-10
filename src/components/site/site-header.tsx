@@ -42,7 +42,14 @@ export const SiteHeader = (): React.ReactElement => {
           className="flex items-center gap-2.5 font-display text-xl font-semibold tracking-tight text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           {/* Decorative: the wordmark beside it already names the link. */}
-          <Image src="/images/logo.png" alt="" width={34} height={34} priority className="h-8 w-8" />
+          <Image
+            src="/images/logo.png"
+            alt=""
+            width={34}
+            height={34}
+            priority
+            className="h-8 w-8 rounded-sm"
+          />
           <span>
             Project<span className="text-brand">Patho</span>
           </span>

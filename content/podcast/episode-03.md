@@ -1,5 +1,5 @@
 ---
-title: "Physical Therapy Month, with Dr. Kench"
+title: "Healing Through Motion: Understanding Physical Therapy"
 episode: 3
 guest: "Dr. Kench"
 specialty: "Physical Therapist"

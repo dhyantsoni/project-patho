@@ -69,7 +69,7 @@ const HomePage = (): React.ReactElement => {
               width={112}
               height={112}
               priority
-              className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24"
+              className="h-16 w-16 rounded-sm sm:h-20 sm:w-20 md:h-24 md:w-24"
             />
           </div>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">

@@ -15,14 +15,14 @@ export const EpisodeCard = ({ episode }: { episode: Episode }): React.ReactEleme
           src={episode.cover.src}
           alt={episode.cover.alt}
           width={episode.cover.width ?? 800}
-          height={episode.cover.height ?? 1000}
+          height={episode.cover.height ?? 800}
           sizes="144px"
-          className="h-auto w-28 shrink-0 bg-pink-soft sm:w-36"
+          className="h-28 w-28 shrink-0 bg-pink-soft object-cover sm:h-36 sm:w-36"
         />
       ) : (
         <span
           aria-hidden="true"
-          className="flex h-24 w-24 shrink-0 items-center justify-center bg-pink-soft font-display text-4xl font-semibold text-brand"
+          className="flex h-28 w-28 shrink-0 items-center justify-center bg-pink-soft font-display text-4xl font-semibold text-brand sm:h-36 sm:w-36"
         >
           {episode.episode}
         </span>

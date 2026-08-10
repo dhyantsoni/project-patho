@@ -1,5 +1,5 @@
 ---
-title: "Inside Ophthalmology, with Dr. Hou"
+title: "Looking into Eye Health: A Talk with an Ophthalmologist"
 episode: 2
 guest: "Dr. Hou"
 specialty: "Ophthalmologist, National Taiwan University Hospital"
@@ -8,7 +8,7 @@ date: ""
 summary: "A conversation with ophthalmologist Dr. Hou of National Taiwan University Hospital about the science of the eye and caring for patients' vision."
 image: "podcast-ep-02.webp"
 alt: "PathoTalks Episode 2 cover art"
-link: "https://spotifycreators-web.app.link/e/dKzdLdTHvWb"
+link: "https://creators.spotify.com/pod/profile/project-patho/episodes/Looking-into-Eye-Health-A-Talk-with-an-Ophthalmologist-e37vn6v"
 embed: ""
 ---
 

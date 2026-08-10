@@ -1,5 +1,5 @@
 ---
-title: "Living with Epilepsy, with Dr. Hawkins"
+title: "Inside the Brain: Talking about Seizures with a Neurologist"
 episode: 1
 guest: "Dr. Hawkins"
 specialty: "Neurologist, Kaiser"

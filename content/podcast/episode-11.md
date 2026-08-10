@@ -1,15 +1,16 @@
 ---
-title: "Inside the ICU: The World of Critical Care Medicine, with Urvi Parikh"
+title: "Inside the Pharmacy"
 episode: 11
 guest: "Urvi Parikh"
-specialty: ""
-interviewer: ""
+specialty: "Pharmacy Technician"
+interviewer: "Aarini Parikh"
 date: ""
-summary: "A conversation with Urvi Parikh about critical care medicine and what life inside the ICU is really like."
-image: "podcast-ep-11.webp"
-alt: "PathoTalks Episode 11 cover art"
-# TODO: paste the Spotify episode link here and the Listen button appears.
-link: ""
+summary: "What does a pharmacy technician do behind the scenes to keep patients safe and healthcare running smoothly? Aarini Parikh sits down with Urvi Parikh, an experienced pharmacy technician, to find out."
+# The published cover art for this episode is labelled "Inside the ICU" by
+# mistake, so it's left off here rather than contradicting the title.
+image: ""
+alt: ""
+link: "https://open.spotify.com/episode/3SOZenzplUeS7RK50GaAB7"
 embed: ""
 ---
 

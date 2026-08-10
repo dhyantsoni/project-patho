@@ -1,5 +1,5 @@
 ---
-title: "The Future of Cancer Treatment, with Dr. Sonal Bordia"
+title: "Advancing Cancer Treatment Through Drug Development"
 episode: 10
 guest: "Dr. Sonal Bordia"
 specialty: "Physician-Scientist & Medical Oncologist"

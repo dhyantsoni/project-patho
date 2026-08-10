@@ -1,5 +1,5 @@
 ---
-title: "Hormones & Health, with Dr. Ajay Varanasi"
+title: "Entering the Endocrine World"
 episode: 7
 guest: "Dr. Ajay Varanasi"
 specialty: "Board-Certified Endocrinologist"
