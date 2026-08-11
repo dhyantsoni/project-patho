@@ -17,7 +17,7 @@ by the team (August 2026) from the pages of the previous Google Sites build.
 | `event-*.webp` (78 files)                                                                                | Every photo from every event, in the same order as the team's own past-events page, plus the Skeletal System Event flyer | Events, Join, Home |
 | `cards-for-kids-*.webp` (4 files)                                                                        | Cards for Hospitalized Kids sessions                                                     | Events — Cards for Hospitalized Kids |
 | `poster-*.webp` (6 files)                                                                                | Info posters, credited to their student author in `content/posters/*.md`                 | Resources                            |
-| `podcast-ep-01…10.webp`, `podcast-ep-12.webp`                                                            | PathoTalks episode cover art, squared to match the show's artwork on Spotify              | Podcast                              |
+| `podcast-ep-01…12.webp`                                                                                  | PathoTalks episode cover art, squared to match the show's artwork on Spotify              | Podcast                              |
 | `logo.png`, `src/app/icon.png`, `src/app/apple-icon.png`                                                 | The stethoscope mark, cropped from the 2026 logo                                         | Header, home hero, browser tab       |
 
 Poster authors, as credited on each poster: Bipolar Disorder — Ridah Mannat;
@@ -50,10 +50,6 @@ artwork would have been a second copy of the same words.
 
 ## Still to supply
 
-- **Episode 11 cover art** — the published graphic is labelled "Inside the ICU",
-  but the episode is "Inside the Pharmacy". It's left off rather than
-  contradicting the title; drop a corrected file in and name it in
-  `content/podcast/episode-11.md`.
 - **A Sickle Cell Anemia quiz** — the team's own site marks it "coming soon", so
   that poster shows the same note. Add a `quiz:` block to give it one.
 
