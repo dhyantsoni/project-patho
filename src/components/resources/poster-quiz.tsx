@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 /**
- * A poster's quiz, answered and marked in place — no forms, no leaving the site.
+ * A poster's quiz, answered and marked in place, with no forms and no leaving the site.
  * Each question is a radio group inside a fieldset so keyboard and screen-reader
  * users get native grouping; the score is announced politely once marked.
  */

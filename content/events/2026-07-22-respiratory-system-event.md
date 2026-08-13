@@ -4,7 +4,7 @@ date: "2026-07-22"
 displayDate: "7/22/26"
 status: "past"
 location: "4s Library"
-summary: "Kids explored how the lungs work at the 4s Library — including a balloon activity that shows what happens every time you take a breath."
+summary: "Kids explored how the lungs work at the 4s Library, including a balloon activity that shows what happens every time you take a breath."
 image: "event-respiratory-system-01.webp"
 alt: "A ProjectPatho volunteer presents a slide about the parts of the respiratory system"
 gallery:

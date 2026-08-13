@@ -54,7 +54,7 @@ for (const [from, to] of Object.entries(REDIRECTS)) {
   // A real page already at this path means the two sites share the URL, so
   // there is nothing to redirect. Never clobber the export.
   if (existsSync(file)) {
-    console.error(`refusing to overwrite a real page at ${from} — remove it from REDIRECTS`);
+    console.error(`refusing to overwrite a real page at ${from}; remove it from REDIRECTS`);
     process.exit(1);
   }
   mkdirSync(join(OUT, from), { recursive: true });

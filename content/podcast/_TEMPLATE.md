@@ -7,7 +7,7 @@ guest: "Dr. Example"
 specialty: "Cardiologist"
 # Which team member(s) hosted (optional).
 interviewer: "Aditi"
-# Date the episode went live (YYYY-MM-DD) — optional; episodes sort by number.
+# Date the episode went live (YYYY-MM-DD). Optional; episodes sort by number.
 date: ""
 # One or two sentences shown in the episode list.
 summary: "What this episode is about, in plain language."
@@ -20,4 +20,4 @@ embed: ""
 ---
 
 Optional longer show notes go here: guests, topics, timestamps, links mentioned.
-This body is optional — the fields above are enough to list the episode.
+This body is optional. The fields above are enough to list the episode.

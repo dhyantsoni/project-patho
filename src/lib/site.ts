@@ -28,7 +28,7 @@ export const site = {
 
 export type NavLink = { label: string; href: string };
 
-/** Primary navigation — the new, flattened information architecture. */
+/** Primary navigation. The new, flattened information architecture. */
 export const nav: NavLink[] = [
   { label: "About", href: "/#about" },
   { label: "Team", href: "/team" },

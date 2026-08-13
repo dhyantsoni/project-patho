@@ -3,7 +3,7 @@ import type { Episode } from "@/lib/content";
 
 /**
  * PathoTalks episodes as a ruled list. The episode number is set large in the
- * display face and doubles as the artwork slot — cover images are used when a
+ * display face and doubles as the artwork slot. Cover images are used when a
  * content file supplies one.
  */
 
@@ -40,7 +40,7 @@ export const EpisodeCard = ({ episode }: { episode: Episode }): React.ReactEleme
         {(episode.guest || episode.specialty) && (
           <p className="mt-2 text-ink">
             <span className="font-semibold">{episode.guest}</span>
-            {episode.guest && episode.specialty ? " — " : ""}
+            {episode.guest && episode.specialty ? ", " : ""}
             {episode.specialty ? <span className="text-ink-soft">{episode.specialty}</span> : null}
           </p>
         )}

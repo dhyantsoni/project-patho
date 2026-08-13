@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   ProjectPatho — Editorial design tokens
+   ProjectPatho editorial design tokens
    Deep maroon on blush paper, with pink as the single accent. Flat surfaces,
    hairline rules, 2px corners. No decorative blobs, no drop shadows, no
-   entrance animation — the page paints in one pass.
+   entrance animation. The page paints in one pass.
    Text pairings verified WCAG AA (ratios noted inline).
    ========================================================================= */
 
@@ -17,11 +17,11 @@
   --ink: #2b1418; /* 13.8:1 on blush */
   --ink-soft: #6b4148; /* 7.8:1 on blush */
 
-  /* Maroon — the dominant colour */
+  /* Maroon, the dominant colour */
   --brand: #8c1c33; /* 8.3:1 on blush, so it's safe at body size */
   --brand-deep: #5e1022; /* dark sections + hover */
 
-  /* Pink — accent. Fills and rules only; never text on a light ground. */
+  /* Pink accent. Fills and rules only; never text on a light ground. */
   --pink: #e6a4b4;
   --pink-soft: #f7dee4; /* maroon on this: 7.1:1 */
 
@@ -119,7 +119,7 @@
   border-top: 3px solid var(--ink);
 }
 
-/* Running metadata under the masthead — facts, not a decorative label. */
+/* Running metadata under the masthead: facts, not a decorative label. */
 .dateline {
   font-size: 0.875rem;
   color: var(--ink-soft);

@@ -70,7 +70,7 @@ const PodcastPage = (): React.ReactElement => {
             {(latest.guest || latest.specialty) && (
               <p className="mt-3 text-[#F0D5D9]">
                 {latest.guest}
-                {latest.guest && latest.specialty ? " — " : ""}
+                {latest.guest && latest.specialty ? ", " : ""}
                 {latest.specialty}
               </p>
             )}
@@ -84,7 +84,7 @@ const PodcastPage = (): React.ReactElement => {
                 className={cn(buttonVariants({ variant: "onDark" }), "mt-7")}
               >
                 Listen on Spotify
-                <span className="sr-only"> — {latest.title}</span>
+                <span className="sr-only">: {latest.title}</span>
               </a>
             ) : null}
           </Container>

@@ -7,7 +7,7 @@ import matter from "gray-matter";
  *
  * Every list on the site (team, podcast, events, posters) is a folder of
  * markdown files under /content. A non-coder adds an item by copying the
- * folder's `_TEMPLATE.md` to a new file — no code changes. These helpers read
+ * folder's `_TEMPLATE.md` to a new file, with no code changes. These helpers read
  * those folders at build time (static export).
  */
 
@@ -15,7 +15,7 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 const PUBLIC_IMAGES_DIR = path.join(process.cwd(), "public", "images");
 
 /**
- * Resolves a content `image:` filename to a usable `/images/…` path — but only
+ * Resolves a content `image:` filename to a usable `/images/…` path, but only
  * if the file actually exists in public/images. Otherwise returns undefined so
  * the component can show its graceful placeholder. This is what makes the
  * documented "drop a photo in public/images and name it" flow work: name it and
@@ -29,8 +29,8 @@ const resolveImage = (file?: string): string | undefined => {
 
 /**
  * Resolves a content `link:`/`pdf:` value to a usable href, keeping
- * only schemes that are safe to put in an anchor. Anything else — most
- * pointedly `javascript:` — is dropped, so a link pasted into a content file
+ * only schemes that are safe to put in an anchor. Anything else, most
+ * pointedly `javascript:`, is dropped, so a link pasted into a content file
  * can never become script. Site-relative paths ("/handout.pdf") pass through.
  */
 const resolveUrl = (raw?: string): string | undefined => {
@@ -208,7 +208,7 @@ export type EventItem = {
   summary: string;
   image?: string;
   alt?: string;
-  /** The whole album — the `image:` photo first, then the `gallery:` ones. */
+  /** The whole album: the `image:` photo first, then the `gallery:` ones. */
   photos: Photo[];
   link?: string;
   linkLabel?: string;

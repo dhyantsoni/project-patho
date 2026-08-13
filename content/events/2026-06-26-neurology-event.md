@@ -4,7 +4,7 @@ date: "2026-06-26"
 displayDate: "6/26/26"
 status: "past"
 location: "4s Library"
-summary: "A hands-on neurology session at the 4s Library exploring how the brain and nervous system work — including building a neuron out of clay."
+summary: "A hands-on neurology session at the 4s Library exploring how the brain and nervous system work, including building a neuron out of clay."
 image: "event-neurology-event-01.webp"
 alt: "The 4s Library meeting room filling up at the start of the neurology event"
 gallery:

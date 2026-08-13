@@ -4,7 +4,7 @@ import { PhotoStrip } from "@/components/media/photo-strip";
 
 /**
  * A full past event: date and location, title, summary, then every photo from
- * that event — the same "heading, then the whole album" shape the team uses on
+ * that event, the same "heading, then the whole album" shape the team uses on
  * projectpatho.org.
  */
 

@@ -8,7 +8,7 @@ import { PosterGallery } from "@/components/resources/poster-gallery";
 import { PosterQuiz } from "@/components/resources/poster-quiz";
 
 export const metadata = pageMeta({
-  title: "Resources — Info Posters",
+  title: "Info Posters",
   description:
     "Info posters that teach kids ages 7–11 about diseases and disorders, written and illustrated by ProjectPatho students.",
   path: "/resources",

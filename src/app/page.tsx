@@ -40,7 +40,7 @@ const HomePage = (): React.ReactElement => {
 
   const events = getEvents().filter((e) => !e.cardsForKids && e.image);
   // The event-flyer slot: the next event when one is scheduled, otherwise the
-  // most recent one — so the poster the team made always has a home here.
+  // most recent one, so the poster the team made always has a home here.
   const featured = events.find((e) => e.status === "upcoming") ?? events[0];
 
   // Measured from the files so the wide RMHC group shot keeps everyone in frame.
@@ -96,7 +96,7 @@ const HomePage = (): React.ReactElement => {
         </Container>
       </section>
 
-      {/* ===== Mission — photo left, text right, as on projectpatho.org ===== */}
+      {/* ===== Mission: photo left, text right, as on projectpatho.org ===== */}
       <section id="about" className="scroll-mt-20 border-t border-border py-16 sm:py-24">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -121,7 +121,7 @@ const HomePage = (): React.ReactElement => {
         </Container>
       </section>
 
-      {/* ===== Where to start — text left, workshop photo right ===== */}
+      {/* ===== Where to start: text left, workshop photo right ===== */}
       <section aria-labelledby="start-heading" className="pb-16 sm:pb-20">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -182,7 +182,7 @@ const HomePage = (): React.ReactElement => {
               </div>
               <Link
                 href="/events"
-                aria-label={`See all our events — ${featured.title}`}
+                aria-label={`See all our events: ${featured.title}`}
                 className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
               >
                 <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden bg-pink-soft md:ml-auto">

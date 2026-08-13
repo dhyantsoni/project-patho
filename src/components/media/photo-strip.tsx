@@ -3,8 +3,8 @@ import type { Photo } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 /**
- * A photo album laid out in columns. Every photo keeps its own proportions —
- * a wide group shot stays wide — so nobody gets cropped out of the frame.
+ * A photo album laid out in columns. Every photo keeps its own proportions.
+ * A wide group shot stays wide, so nobody gets cropped out of the frame.
  * Rendered as a <ul> so screen readers announce it as a set; each photo carries
  * the alt text written in its content file.
  */

@@ -9,7 +9,7 @@ import { TeamGrid } from "@/components/team/team-grid";
 export const metadata = pageMeta({
   title: "Meet the Team",
   description:
-    "Meet the student leaders behind ProjectPatho — the young people making science warm, honest, and welcoming for kids everywhere.",
+    "Meet the student leaders behind ProjectPatho, the young people making science warm, honest, and welcoming for kids everywhere.",
   path: "/team",
 });
 
@@ -35,7 +35,7 @@ const TeamPage = (): React.ReactElement => {
             <span>{INTERNS.length} interns</span>
           </p>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
-            ProjectPatho is built by students — curious, driven young people who believe science
+            ProjectPatho is built by students: curious, driven young people who believe science
             belongs to everyone. Meet the leaders behind the posters, the podcast, and every workshop
             we run.
           </p>

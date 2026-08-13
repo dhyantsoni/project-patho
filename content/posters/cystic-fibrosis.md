@@ -31,4 +31,4 @@ quiz:
 order: 2
 ---
 
-Cystic fibrosis is something a person is born with — you can't catch it from someone else. Researchers around the world are working hard on new treatments.
+Cystic fibrosis is something a person is born with, so you can't catch it from someone else. Researchers around the world are working hard on new treatments.

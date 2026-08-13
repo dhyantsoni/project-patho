@@ -7,7 +7,7 @@ image: "team-firstname.webp"
 alt: "Short description of the photo (e.g. Headshot of Jane smiling)"
 # Lower numbers appear first on the Meet The Team page.
 order: 10
-# Optional links — delete any you don't need.
+# Optional links. Delete any you don't need.
 links:
   linkedin: ""
   email: ""

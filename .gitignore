@@ -40,6 +40,6 @@ yarn-error.log*
 .vscode/*
 !.vscode/extensions.json
 
-# local tooling (skills pack — not part of the site)
+# local tooling (skills pack, not part of the site)
 /frontend-skills-pack/
 /frontendskillspack.zip

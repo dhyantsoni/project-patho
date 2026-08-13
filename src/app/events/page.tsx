@@ -150,7 +150,7 @@ const EventsPage = (): React.ReactElement => {
             to Ronald McDonald House Charities, with all the photos from each.
           </p>
 
-          {/* Every event keeps its whole album, newest first — same as the
+          {/* Every event keeps its whole album, newest first, same as the
               team's own past-events page. */}
           <ul className="mt-12 space-y-16">
             {past.map((event) => (

@@ -3,7 +3,7 @@ import type { TeamMember } from "@/lib/content";
 
 /**
  * The leadership grid. Each member is a square headshot with their name, role,
- * and bio set beneath it — no card chrome. Members without a photo get a plain
+ * and bio set beneath it, with no card chrome. Members without a photo get a plain
  * initials tile rather than a broken image.
  */
 

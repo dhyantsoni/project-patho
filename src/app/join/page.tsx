@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata = pageMeta({
   title: "Join Us",
   description:
-    "Volunteer with ProjectPatho. Run workshops, make care packages, write cards for hospitalized kids, spread awareness, or help with the PathoTalks podcast — there's a place for every student.",
+    "Volunteer with ProjectPatho. Run workshops, make care packages, write cards for hospitalized kids, spread awareness, or help with the PathoTalks podcast. There's a place for every student.",
   path: "/join",
 });
 
@@ -28,7 +28,7 @@ const WAYS: { icon: LucideIcon; title: string; blurb: string }[] = [
     icon: Calendar,
     title: "Run events & workshops",
     blurb:
-      "Help plan and lead hands-on sessions that make diseases and disorders make sense to younger kids — from setup to the final high-five.",
+      "Help plan and lead hands-on sessions that make diseases and disorders make sense to younger kids, from setup to the final high-five.",
   },
   {
     icon: HeartHandshake,
@@ -127,7 +127,7 @@ const JoinPage = (): React.ReactElement => {
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-ink-soft">
                 From library workshops to care-package drives, our volunteers turn big, scary medical
-                words into something kids can understand — and feel good about. You bring the
+                words into something kids can understand, and feel good about. You bring the
                 curiosity; we&apos;ll show you the rest.
               </p>
             </div>
